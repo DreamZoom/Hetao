@@ -49,5 +49,25 @@ namespace Hetao.Framework.Web
             return View();
         }
 
+        public ActionResult Edit()
+        {
+            ViewData.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, ModelType);
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Edit(T model)
+        {
+            try
+            {
+                Service.Update(model);
+            }
+            catch (Exception err)
+            {
+                ViewData.ModelState.AddModelError("", err.Message);
+            }
+            return View();
+        }
+
     }
 }
