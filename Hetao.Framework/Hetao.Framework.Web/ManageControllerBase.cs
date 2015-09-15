@@ -46,7 +46,7 @@ namespace Hetao.Framework.Web
             {
                 ViewData.ModelState.AddModelError("", err.Message);
             }
-            return View();
+            return View(model);
         }
 
         public ActionResult Edit()
@@ -66,7 +66,7 @@ namespace Hetao.Framework.Web
             {
                 ViewData.ModelState.AddModelError("", err.Message);
             }
-            return View();
+            return View(model);
         }
 
     }
