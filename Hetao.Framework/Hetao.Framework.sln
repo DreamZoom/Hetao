@@ -5,6 +5,20 @@ VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hetao.Framework.Cms", "Hetao.Framework.Cms\Hetao.Framework.Cms.csproj", "{614EE41F-D963-4BDB-8A7F-9027D2B980C4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hetao.Framework.Contract", "Hetao.Framework.Contract\Hetao.Framework.Contract.csproj", "{01319EEB-28CD-4822-8A3F-8902099E27D6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hetao.Framework.BLL", "Hetao.Framework.BLL\Hetao.Framework.BLL.csproj", "{D1F0C70F-021C-4353-854E-D5B9B56A8521}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hetao.Framework.DAL", "Hetao.Framework.DAL\Hetao.Framework.DAL.csproj", "{6AC9A053-968E-4E33-B1D2-DCAA6B45A774}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hetao.Framework.Utility", "Hetao.Framework.Utility\Hetao.Framework.Utility.csproj", "{DBF5F6BB-5508-41EE-B4D2-402CFFFD28E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hetao.Framework.Web", "Hetao.Framework.Web\Hetao.Framework.Web.csproj", "{CC6642F4-36AB-44D8-842C-40A89274992E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{34F28586-0FF5-46A0-A590-1ABEC117BF33}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cms", "Cms", "{3948DD2F-C43E-4D0B-B7C2-239299692FEE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +29,36 @@ Global
 		{614EE41F-D963-4BDB-8A7F-9027D2B980C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{614EE41F-D963-4BDB-8A7F-9027D2B980C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{614EE41F-D963-4BDB-8A7F-9027D2B980C4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01319EEB-28CD-4822-8A3F-8902099E27D6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01319EEB-28CD-4822-8A3F-8902099E27D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01319EEB-28CD-4822-8A3F-8902099E27D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01319EEB-28CD-4822-8A3F-8902099E27D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1F0C70F-021C-4353-854E-D5B9B56A8521}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1F0C70F-021C-4353-854E-D5B9B56A8521}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1F0C70F-021C-4353-854E-D5B9B56A8521}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1F0C70F-021C-4353-854E-D5B9B56A8521}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6AC9A053-968E-4E33-B1D2-DCAA6B45A774}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6AC9A053-968E-4E33-B1D2-DCAA6B45A774}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6AC9A053-968E-4E33-B1D2-DCAA6B45A774}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6AC9A053-968E-4E33-B1D2-DCAA6B45A774}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DBF5F6BB-5508-41EE-B4D2-402CFFFD28E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DBF5F6BB-5508-41EE-B4D2-402CFFFD28E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DBF5F6BB-5508-41EE-B4D2-402CFFFD28E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DBF5F6BB-5508-41EE-B4D2-402CFFFD28E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC6642F4-36AB-44D8-842C-40A89274992E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC6642F4-36AB-44D8-842C-40A89274992E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC6642F4-36AB-44D8-842C-40A89274992E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC6642F4-36AB-44D8-842C-40A89274992E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{614EE41F-D963-4BDB-8A7F-9027D2B980C4} = {3948DD2F-C43E-4D0B-B7C2-239299692FEE}
+		{01319EEB-28CD-4822-8A3F-8902099E27D6} = {34F28586-0FF5-46A0-A590-1ABEC117BF33}
+		{D1F0C70F-021C-4353-854E-D5B9B56A8521} = {34F28586-0FF5-46A0-A590-1ABEC117BF33}
+		{6AC9A053-968E-4E33-B1D2-DCAA6B45A774} = {34F28586-0FF5-46A0-A590-1ABEC117BF33}
+		{DBF5F6BB-5508-41EE-B4D2-402CFFFD28E9} = {34F28586-0FF5-46A0-A590-1ABEC117BF33}
+		{CC6642F4-36AB-44D8-842C-40A89274992E} = {34F28586-0FF5-46A0-A590-1ABEC117BF33}
 	EndGlobalSection
 EndGlobal
