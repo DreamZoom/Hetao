@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Data.Entity;
 using Hetao.Framework.Contract;
+using System.Web;
 
 
 using Webdiyer.WebControls.Mvc;
@@ -61,6 +62,28 @@ namespace Hetao.Framework.DAL
             var queryList = conditions == null ? this.Set<T>() : this.Set<T>().Where(conditions) as IQueryable<T>;
 
             return queryList.OrderByDescending(orderBy).ToPagedList(pageIndex, pageSize);
+        }
+
+
+        public T Find<T>(HttpRequestBase request) where T : ModelBase
+        {
+            return this.Set<T>().Where(request).FirstOrDefault();
+        }
+
+        public List<T> FindAll<T>(HttpRequestBase request) where T : ModelBase
+        {
+            return this.Set<T>().Where(request).ToList();
+        }
+
+        public List<T> FindAll<T>(HttpRequestBase request,int top) where T : ModelBase
+        {
+            return this.Set<T>().Where(request).Order(request).Take(top).ToList();
+        }
+        public PagedList<T> FindAllByPage<T>(HttpRequestBase request, int pageSize, int pageIndex) where T : ModelBase
+        {
+            var queryList = this.Set<T>() as IQueryable<T>;
+
+            return queryList.Where(request).Order(request).ToPagedList(pageIndex, pageSize);
         }
     }
 }

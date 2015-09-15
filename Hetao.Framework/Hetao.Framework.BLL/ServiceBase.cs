@@ -9,6 +9,7 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq.Expressions;
 using Webdiyer.WebControls.Mvc;
+using System.Web;
 
 namespace Hetao.Framework.BLL
 {
@@ -49,6 +50,26 @@ namespace Hetao.Framework.BLL
         public PagedList<T> FindAllByPage<S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) 
         {
             return DbContext.FindAllByPage<T, S>(conditions, orderBy, pageSize, pageIndex);
+        }
+
+
+        public T Find<T>(HttpRequestBase request) where T : ModelBase
+        {
+            return DbContext.Find<T>(request);
+        }
+
+        public List<T> FindAll<T>(HttpRequestBase request) where T : ModelBase
+        {
+            return DbContext.FindAll<T>(request);
+        }
+
+        public List<T> FindAll<T>(HttpRequestBase request, int top) where T : ModelBase
+        {
+            return DbContext.FindAll<T>(request,top);
+        }
+        public PagedList<T> FindAllByPage<T, S>(HttpRequestBase request, int pageSize, int pageIndex) where T : ModelBase
+        {
+            return DbContext.FindAllByPage<T>(request,pageSize,pageIndex);
         }
     }
 }

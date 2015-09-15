@@ -51,8 +51,9 @@ namespace Hetao.Framework.Web
 
         public ActionResult Edit()
         {
-            ViewData.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, ModelType);
-            return View();
+            var model = Service.Find<T>(Request);
+            if (model == null) return View("Error");
+            return View(model);
         }
 
         [HttpPost]
