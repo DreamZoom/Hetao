@@ -53,21 +53,21 @@ namespace Hetao.Framework.BLL
         }
 
 
-        public T Find<T>(HttpRequestBase request) where T : ModelBase
+        public T Find(HttpRequestBase request) 
         {
             return DbContext.Find<T>(request);
         }
 
-        public List<T> FindAll<T>(HttpRequestBase request) where T : ModelBase
+        public List<T> FindAll(HttpRequestBase request) 
         {
             return DbContext.FindAll<T>(request);
         }
 
-        public List<T> FindAll<T>(HttpRequestBase request, int top) where T : ModelBase
+        public List<T> FindAll(HttpRequestBase request, int top) 
         {
             return DbContext.FindAll<T>(request,top);
         }
-        public PagedList<T> FindAllByPage<T, S>(HttpRequestBase request, int pageSize, int pageIndex) where T : ModelBase
+        public PagedList<T> FindAllByPage(HttpRequestBase request, int pageSize, int pageIndex)
         {
             return DbContext.FindAllByPage<T>(request,pageSize,pageIndex);
         }

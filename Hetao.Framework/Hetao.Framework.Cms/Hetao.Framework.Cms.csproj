@@ -273,6 +273,10 @@
     <Content Include="Scripts\knockout-2.2.0.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Views\Shared\Create.aspx" />
+    <Content Include="Views\Shared\Delete.aspx" />
+    <Content Include="Views\Shared\Details.aspx" />
+    <Content Include="Views\Shared\Edit.aspx" />
+    <Content Include="Views\Shared\List.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

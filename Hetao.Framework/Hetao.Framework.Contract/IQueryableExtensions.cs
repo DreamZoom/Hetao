@@ -5,6 +5,11 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Reflection;
+using System.Data.Entity;
+
 namespace Hetao.Framework.Contract
 {
     public static class IQueryableExtensions
@@ -44,18 +49,44 @@ namespace Hetao.Framework.Contract
             var propertys = typeof(TSource).GetProperties();
 
             Expression where = Expression.Constant(true);
+
+            int count = 0;
             foreach (var p in propertys)
             {
-                string key ="order_"+ p.Name;
+                string key = "order_" + p.Name;
                 string v = request.Params[key];
                 if (string.IsNullOrWhiteSpace(v)) continue;
 
-                source = source.SortBy<TSource>(v);//多字段排序      
+                source = source.SortBy<TSource>(p.Name+" "+v);//多字段排序      
+                count++;
             }
 
-           
+
+            if (count == 0)
+            {
+                var p = getKey<TSource>();
+                if (p == null) throw new Exception("模型没有主键");
+                source = source.SortBy<TSource>(p.Name);//默认主键排序
+
+            }
+
             return source;
 
+        }
+
+        public static PropertyInfo getKey<TSource>()
+        {
+            var propertys = typeof(TSource).GetProperties();
+
+            foreach (var p in propertys)
+            {
+                if (Attribute.GetCustomAttributes(p, typeof(KeyAttribute), false).Count() > 0)
+                {
+                    return p;
+                }
+            }
+
+            return null;
         }
 
         /// <summary>
@@ -105,7 +136,7 @@ namespace Hetao.Framework.Contract
 
             return source.Provider.CreateQuery<T>(methodCallExpression);
         }
-  
+
 
     }
 }

@@ -10,7 +10,7 @@ using Hetao.Framework.BLL;
 
 namespace Hetao.Framework.Web
 {
-    
+
     public class ManageControllerBase<T> : Controller
         where T : ModelBase
     {
@@ -21,14 +21,28 @@ namespace Hetao.Framework.Web
         {
             Service = new ServiceBase<T>(context);
             ModelType = typeof(T);
-            
+
         }
 
         public ActionResult Index()
         {
             return View();
         }
-       
+
+        /// <summary>
+        /// 获取数据列表
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult List()
+        {
+            var options = new ListOptions();
+            TryUpdateModel(options);
+
+            var list = Service.FindAllByPage(Request, options.Page, options.PageSize);
+            return View(list);
+        }
+
+        #region 添加记录
         public ActionResult Create()
         {
             ViewData.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, ModelType);
@@ -49,10 +63,14 @@ namespace Hetao.Framework.Web
             return View(model);
         }
 
+
+        #endregion
+
+        #region 删除记录
         public ActionResult Edit()
         {
-            var model = Service.Find<T>(Request);
-            if (model == null) return View("Error");
+            var model = Service.Find(Request);
+            if (model == null) return Error("未找到记录");
             return View(model);
         }
 
@@ -69,6 +87,58 @@ namespace Hetao.Framework.Web
             }
             return View(model);
         }
+        #endregion
 
+        #region 详情
+        public ActionResult Details()
+        {
+            var model = Service.Find(Request);
+            if (model == null) return Error("未找到记录");
+            return View(model);
+        }
+
+        #endregion
+
+        #region 删除记录
+        public ActionResult Delete()
+        {
+            var model = Service.Find(Request);
+            if (model == null) return Error("未找到记录");
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(T model)
+        {
+            try
+            {
+                Service.Delete(model);
+            }
+            catch (Exception err)
+            {
+                ViewData.ModelState.AddModelError("", err.Message);
+            }
+            return View(model);
+        }
+
+        #endregion
+
+
+        #region 结果展示
+
+        public ActionResult Error(string message)
+        {
+            string lastUrl = Request.UrlReferrer == null ? "" : Request.UrlReferrer.ToString();
+            return View("_Result", new { MsgType = "error", Message = message, BackUrl = lastUrl });
+        }
+
+        public ActionResult Success(string message)
+        {
+            string lastUrl = Request.UrlReferrer == null ? "" : Request.UrlReferrer.ToString();
+            return View("_Result", new { MsgType = "success", Message = message, BackUrl = lastUrl });
+        }
+
+
+        #endregion
     }
 }

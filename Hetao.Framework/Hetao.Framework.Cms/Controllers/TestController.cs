@@ -18,13 +18,7 @@ namespace Hetao.Framework.Cms.Controllers
         {
 
         }
-        //
-        // GET: /Test/
-
-        public ActionResult Index()
-        {
-            return View();
-        }
+        
 
     }
 }
