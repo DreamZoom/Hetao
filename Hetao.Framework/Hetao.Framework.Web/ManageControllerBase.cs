@@ -55,6 +55,7 @@ namespace Hetao.Framework.Web
             try
             {
                 Service.Insert(model);
+                return RedirectToAction("Index");
             }
             catch (Exception err)
             {
@@ -80,6 +81,7 @@ namespace Hetao.Framework.Web
             try
             {
                 Service.Update(model);
+                return RedirectToAction("Index");
             }
             catch (Exception err)
             {
@@ -113,6 +115,7 @@ namespace Hetao.Framework.Web
             try
             {
                 Service.Delete(model);
+                return RedirectToAction("Index");
             }
             catch (Exception err)
             {

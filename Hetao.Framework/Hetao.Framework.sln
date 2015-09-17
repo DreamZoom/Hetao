@@ -19,6 +19,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Framework", "Framework", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Cms", "Cms", "{3948DD2F-C43E-4D0B-B7C2-239299692FEE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Hetao.Framework.Cms.Services", "Hetao.Framework.Cms.Services\Hetao.Framework.Cms.Services.csproj", "{10606BC1-1E57-43B1-9B45-42D970D668B2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -49,6 +51,10 @@ Global
 		{CC6642F4-36AB-44D8-842C-40A89274992E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CC6642F4-36AB-44D8-842C-40A89274992E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CC6642F4-36AB-44D8-842C-40A89274992E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{10606BC1-1E57-43B1-9B45-42D970D668B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{10606BC1-1E57-43B1-9B45-42D970D668B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{10606BC1-1E57-43B1-9B45-42D970D668B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{10606BC1-1E57-43B1-9B45-42D970D668B2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -60,5 +66,6 @@ Global
 		{6AC9A053-968E-4E33-B1D2-DCAA6B45A774} = {34F28586-0FF5-46A0-A590-1ABEC117BF33}
 		{DBF5F6BB-5508-41EE-B4D2-402CFFFD28E9} = {34F28586-0FF5-46A0-A590-1ABEC117BF33}
 		{CC6642F4-36AB-44D8-842C-40A89274992E} = {34F28586-0FF5-46A0-A590-1ABEC117BF33}
+		{10606BC1-1E57-43B1-9B45-42D970D668B2} = {3948DD2F-C43E-4D0B-B7C2-239299692FEE}
 	EndGlobalSection
 EndGlobal
