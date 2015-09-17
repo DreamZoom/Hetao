@@ -24,16 +24,12 @@ namespace Hetao.Framework.Web
 
         }
 
-        public ActionResult Index()
-        {
-            return View();
-        }
 
         /// <summary>
         /// 获取数据列表
         /// </summary>
         /// <returns></returns>
-        public ActionResult List()
+        public virtual ActionResult List()
         {
             var options = new ListOptions();
             TryUpdateModel(options);
@@ -43,14 +39,14 @@ namespace Hetao.Framework.Web
         }
 
         #region 添加记录
-        public ActionResult Create()
+        public virtual ActionResult Create()
         {
             ViewData.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, ModelType);
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(T model)
+        public virtual ActionResult Create(T model)
         {
             try
             {
@@ -68,7 +64,7 @@ namespace Hetao.Framework.Web
         #endregion
 
         #region 删除记录
-        public ActionResult Edit()
+        public virtual ActionResult Edit()
         {
             var model = Service.Find(Request);
             if (model == null) return Error("未找到记录");
@@ -76,7 +72,7 @@ namespace Hetao.Framework.Web
         }
 
         [HttpPost]
-        public ActionResult Edit(T model)
+        public virtual ActionResult Edit(T model)
         {
             try
             {
@@ -92,7 +88,7 @@ namespace Hetao.Framework.Web
         #endregion
 
         #region 详情
-        public ActionResult Details()
+        public virtual ActionResult Details()
         {
             var model = Service.Find(Request);
             if (model == null) return Error("未找到记录");
@@ -102,7 +98,7 @@ namespace Hetao.Framework.Web
         #endregion
 
         #region 删除记录
-        public ActionResult Delete()
+        public virtual ActionResult Delete()
         {
             var model = Service.Find(Request);
             if (model == null) return Error("未找到记录");
@@ -110,7 +106,7 @@ namespace Hetao.Framework.Web
         }
 
         [HttpPost]
-        public ActionResult Delete(T model)
+        public virtual ActionResult Delete(T model)
         {
             try
             {

@@ -38,6 +38,40 @@ namespace Hetao.Framework.Cms
                         "~/Content/themes/base/jquery.ui.datepicker.css",
                         "~/Content/themes/base/jquery.ui.progressbar.css",
                         "~/Content/themes/base/jquery.ui.theme.css"));
+
+            //Metronic
+
+            bundles.Add(new StyleBundle("~/theme/metronic").Include(
+                    "~/Themes/Commons/bootstrap/css/bootstrap.css",
+                    "~/Themes/Commons/bootstrap/css/bootstrap-responsive.css",
+                    "~/Themes/Commons/font-awesome/css/font-awesome.css",
+                    "~/Themes/Metronic/css/metro.css",
+                    "~/Themes/Metronic/css/style.css",
+                    "~/Themes/Metronic/css/style_responsive.css",
+                    "~/Themes/Metronic/css/style_default.css",
+                    "~/Themes/Commons/gritter/css/jquery.gritter.css",
+                    "~/Themes/Commons/uniform/css/uniform.default.css"
+                ));
+
+            bundles.Add(new ScriptBundle("~/js/metronic").Include(
+                   "~/Scripts/jquery-{version}.js",
+                   "~/Scripts/jquery.unobtrusive*",
+                   "~/Scripts/jquery.validate*",
+                   "~/Scripts/jquery-ui-{version}.js",
+                   "~/Themes/Commons/jquery-slimscroll/jquery.slimscroll.js",
+                   "~/Themes/Commons/fullcalendar/fullcalendar/fullcalendar.js",
+                   "~/Themes/Commons/bootstrap/js/bootstrap.js",
+                   "~/Themes/Commons/breakpoints/breakpoints.js",
+                   "~/Themes/Commons/uniform/jquery.uniform.js",
+                   "~/Themes/Commons/gritter/js/jquery.gritter.js",
+
+                   "~/Themes/Commons/bootstrap-daterangepicker/date.js",
+                   "~/Themes/Commons/bootstrap-daterangepicker/daterangepicker.js",
+                   "~/Themes/Metronic/js/jquery.blockui.js",
+                   "~/Themes/Metronic/js/jquery.cookie.js",
+                   "~/Themes/Metronic/js/jquery.pulsate.js",
+                   "~/Themes/Metronic/js/app.js"
+                ));
         }
     }
 }

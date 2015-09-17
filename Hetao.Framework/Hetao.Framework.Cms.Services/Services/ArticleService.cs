@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Hetao.Framework.BLL;
 
-namespace Hetao.Framework.Cms.Services.Services
+namespace Hetao.Framework.Cms.Services
 {
     public class ArticleService : ServiceBase<Models.Article>
     {

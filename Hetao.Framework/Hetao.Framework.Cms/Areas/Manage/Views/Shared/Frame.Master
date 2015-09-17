@@ -1,0 +1,31 @@
+﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+	<meta content="" name="description" />
+	<meta content="" name="author" />
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <%: Styles.Render("~/theme/metronic") %>
+    <%: Scripts.Render("~/bundles/modernizr") %>
+    <link rel="shortcut icon" href="favicon.ico" />
+    <style type="text/css">
+        .color-write{
+            background:#fff;
+        }
+    </style>
+</head>
+<body  >
+    <div class="page-container row-fluid color-write">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+    <%: Scripts.Render("~/js/metronic") %>
+    <script type="text/javascript">
+       
+    </script>
+</body>
+</html>

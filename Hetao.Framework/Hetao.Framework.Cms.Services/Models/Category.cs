@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Hetao.Framework.Contract;
 
 namespace Hetao.Framework.Cms.Services.Models
 {
-    public class Category
+    public class Category : ModelBase
     {
         [Key]
         public int Id { get; set; }
@@ -17,7 +18,7 @@ namespace Hetao.Framework.Cms.Services.Models
 
         public int Sort { get; set; }
 
-        [ForeignKey("Category")]
+        [ForeignKey("Parent")]
         public int ParentId { get; set; }
         public virtual Category Parent { get; set; }
 

@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Hetao.Framework.Contract;
 
 namespace Hetao.Framework.Cms.Services.Models
 {
-    public class Resource
+    public class Resource : ModelBase
     {
         /// <summary>
         /// 资源ID

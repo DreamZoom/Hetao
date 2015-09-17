@@ -5,18 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using Hetao.Framework.Contract;
 
 namespace Hetao.Framework.Cms.Services.Models
 {
     /// <summary>
     /// 导航
     /// </summary>
-    public class Navigation
+    public class Navigation : ModelBase
     {
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Navigation")]
+        [ForeignKey("Parent")]
         public int ParentId { get; set; }
 
         public string Title { get; set; }
