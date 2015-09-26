@@ -28,6 +28,7 @@ namespace Hetao.Framework.SamplePermission
             if (account != null)
             {
                 account.Log("login", HttpContext.Current.Request.UserHostAddress);
+                this.DbContext.SaveChanges();
             }
             return account;
         }

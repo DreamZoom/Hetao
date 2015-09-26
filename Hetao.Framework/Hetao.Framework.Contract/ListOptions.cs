@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Hetao.Framework.Contract
 {
-    public class ListOptions
+    public class EasyUIPageOptions
     {
         private int page = 1;
 
@@ -23,6 +23,14 @@ namespace Hetao.Framework.Contract
         {
             get { return pagesize; }
             set { pagesize = value; }
+        }
+
+        private int rows = 20;
+
+        public int Rows
+        {
+            get { return rows; }
+            set { rows = value; }
         }
         
     }

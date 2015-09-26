@@ -50,7 +50,10 @@ namespace Hetao.Framework.Cms
                     "~/Themes/Metronic/css/style_responsive.css",
                     "~/Themes/Metronic/css/style_default.css",
                     "~/Themes/Commons/gritter/css/jquery.gritter.css",
-                    "~/Themes/Commons/uniform/css/uniform.default.css"
+                    "~/Themes/Commons/uniform/css/uniform.default.css",
+                    "~/Themes/Commons/jquery-easyui/themes/bootstrap/easyui.css",
+                    "~/Themes/Commons/jquery-easyui/themes/color.css",
+                    "~/Themes/Commons/jquery-easyui/themes/icon.css"
                 ));
 
             bundles.Add(new ScriptBundle("~/js/metronic").Include(
@@ -64,7 +67,7 @@ namespace Hetao.Framework.Cms
                    "~/Themes/Commons/breakpoints/breakpoints.js",
                    "~/Themes/Commons/uniform/jquery.uniform.js",
                    "~/Themes/Commons/gritter/js/jquery.gritter.js",
-
+                   "~/Themes/Commons/jquery-easyui/jquery.easyui.js",
                    "~/Themes/Commons/bootstrap-daterangepicker/date.js",
                    "~/Themes/Commons/bootstrap-daterangepicker/daterangepicker.js",
                    "~/Themes/Metronic/js/jquery.blockui.js",

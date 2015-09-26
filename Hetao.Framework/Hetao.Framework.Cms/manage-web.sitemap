@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<siteMap xmlns="sitmaps" >
+    <siteMapNode action="Index" controllter="Article" title="文章管理"  description=""  icon="icon-home"  >
+        <siteMapNode action="Index" controllter="Article" title="文章列表"  description=""  icon="icon-home" />
+        <siteMapNode action="Create" controllter="Article" title="添加文章"  description=""  icon="icon-home" />
+    </siteMapNode>
+</siteMap>

@@ -8,27 +8,23 @@ using Hetao.Framework.Cms.Services.Models;
 using Hetao.Framework.Web;
 namespace Hetao.Framework.Cms.Areas.Manage.Controllers
 {
-    public class ArticleController : Controller
+    public class ArticleController : ApiControllerBase<Article>
     {
+
+        public override Hetao.Framework.BLL.ServiceBase<Article> InitService()
+        {
+            return new ArticleService();
+        }
         //
         // GET: /Manage/Article/
 
-        ArticleService articleService = new ArticleService();
-        public ActionResult Index(int page=1, int pageSize = 20)
+        
+        public ActionResult Index()
         {
-            var list = articleService.FindAllByPage(Request, pageSize, page);
-            return View(list);
+            return View();
         }
 
-        public ActionResult Create()
-        {
-            return View();
-        }
-        [HttpPost]
-        public ActionResult Create(Article article,string cates)
-        {
-            return View();
-        }
+       
 
     }
 }

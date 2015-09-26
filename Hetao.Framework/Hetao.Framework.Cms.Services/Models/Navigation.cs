@@ -15,6 +15,7 @@ namespace Hetao.Framework.Cms.Services.Models
     public class Navigation : ModelBase
     {
         [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         [ForeignKey("Parent")]

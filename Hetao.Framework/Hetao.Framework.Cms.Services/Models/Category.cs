@@ -12,16 +12,20 @@ namespace Hetao.Framework.Cms.Services.Models
     public class Category : ModelBase
     {
         [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         public string CategoryName { get; set; }
 
         public int Sort { get; set; }
 
-        [ForeignKey("Parent")]
-        public int ParentId { get; set; }
+        public int? ParentId { get; set; }
+
+        [ForeignKey("ParentId")]
         public virtual Category Parent { get; set; }
 
-        public virtual ICollection<Category> Childs { get; set; }
+        public virtual ICollection<Category> children { get; set; }
+
+        public virtual ICollection<Article> Articles { get; set; }
     }
 }

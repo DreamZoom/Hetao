@@ -7,12 +7,18 @@ using Hetao.Framework.BLL;
 
 namespace Hetao.Framework.Cms.Services
 {
-    public class CategoryService  :ServiceBase<Models.Category>
+    public class CategoryService :ServiceBase<Models.Category>
     {
         public CategoryService()
             :base(new Models.CmsContext())
         {
 
+        }
+
+
+        public IEnumerable<Models.Category> getRoots()
+        {
+            return this.FindAll(m=>m.ParentId==null);
         }
     }
 }

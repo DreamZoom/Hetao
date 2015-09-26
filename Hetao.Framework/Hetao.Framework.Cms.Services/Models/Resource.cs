@@ -16,6 +16,7 @@ namespace Hetao.Framework.Cms.Services.Models
         /// </summary>
         /// 
         [Key]
+        [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         public int Id { get; set; }
 
         /// <summary>
@@ -24,14 +25,19 @@ namespace Hetao.Framework.Cms.Services.Models
         public string Title { get; set; }
 
         /// <summary>
+        /// 简介
+        /// </summary>
+        public string Summary { get; set; }
+
+        /// <summary>
         /// 上传时间
         /// </summary>
-        public int AddTime { get; set; }
+        public DateTime AddTime { get; set; }
 
         /// <summary>
         /// 最近修改
         /// </summary>
-        public int LastUpdateTime { get; set; }
+        public DateTime LastUpdateTime { get; set; }
 
 
         /// <summary>

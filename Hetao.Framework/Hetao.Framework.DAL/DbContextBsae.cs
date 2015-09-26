@@ -83,7 +83,10 @@ namespace Hetao.Framework.DAL
         {
             var queryList = this.Set<T>() as IQueryable<T>;
 
-            return queryList.Where(request).Order(request).ToPagedList(pageIndex, pageSize);
+            return queryList
+                 //.Where(request)
+                 .Order(request)
+                .ToPagedList(pageIndex, pageSize);
         }
     }
 }

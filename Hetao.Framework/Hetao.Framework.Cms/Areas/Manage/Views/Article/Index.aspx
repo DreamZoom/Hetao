@@ -6,56 +6,44 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-<h2>Index</h2>
+    <div class="row-fluid">
+        <div class="span12">
 
-<p>
-    <%: Html.ActionLink("Create New", "Create") %>
-</p>
-<table>
-    <tr>
-        <th>
-            <%: Html.DisplayNameFor(model => model.Content) %>
-        </th>
-        <th>
-            <%: Html.DisplayNameFor(model => model.Title) %>
-        </th>
-        <th>
-            <%: Html.DisplayNameFor(model => model.AddTime) %>
-        </th>
-        <th>
-            <%: Html.DisplayNameFor(model => model.LastUpdateTime) %>
-        </th>
-        <th>
-            <%: Html.DisplayNameFor(model => model.ClickCount) %>
-        </th>
-        <th></th>
-    </tr>
+            <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+            <h3 class="page-title">文章管理				
+						
+                            <small>Articles</small>
+            </h3>
+            <ul class="breadcrumb">
+                <li>
+                    <i class="icon-home"></i>
+                    <a href="#">文章管理</a>
+                    <i class="icon-angle-right"></i>
+                </li>
+                <li><a href="#">文章列表</a></li>
 
-<% foreach (var item in Model) { %>
-    <tr>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.Content) %>
-        </td>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.Title) %>
-        </td>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.AddTime) %>
-        </td>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.LastUpdateTime) %>
-        </td>
-        <td>
-            <%: Html.DisplayFor(modelItem => item.ClickCount) %>
-        </td>
-        <td>
-            <%: Html.ActionLink("Edit", "Edit", new { id=item.Id }) %> |
-            <%: Html.ActionLink("Details", "Details", new { id=item.Id }) %> |
-            <%: Html.ActionLink("Delete", "Delete", new { id=item.Id }) %>
-        </td>
-    </tr>
-<% } %>
+            </ul>
+            <!-- END PAGE TITLE & BREADCRUMB-->
+        </div>
+    </div>
+    <!-- 列表-->
+    <div class="row-fluid">
+        <div class="span12">
 
-</table>
+            <table  class="easyui-datagrid" remotesort="true" selectOnCheck="true" checkOnSelect="true" url='<%:Url.Action("list") %>' >
+                <thead>
+                    <tr>
+                        <th data-options="field:'ck'">全选</th>
+                        <th data-options="field:'itemid'">Item ID</th>
+                        <th data-options="field:'productid'">Product</th>
+                        <th data-options="field:'listprice',align:'right'">List Price</th>
+                        <th data-options="field:'attr1'">Attribute</th>
+                    </tr>
+                </thead>
+                
+            </table>
+        </div>
+    </div>
+
 
 </asp:Content>

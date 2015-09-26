@@ -294,29 +294,19 @@
                     </a>
                     <ul class="sub">
                         <li><a href="<%:Url.Action("Index","Article") %>" target="main">文章列表</a></li>
-                        <li><a href="<%:Url.Action("Create","Article") %>">添加文章</a></li>
-                        <li><a href="ui_tabs_accordions.html">Tabs & Accordions</a></li>
-                        <li><a href="ui_sliders.html">Sliders</a></li>
-                        <li><a href="ui_tiles.html">Tiles</a></li>
-                        <li><a href="ui_typography.html">Typography</a></li>
-                        <li><a href="ui_tree.html">Tree View</a></li>
-                        <li><a href="ui_nestable.html">Nestable List</a></li>
+                        <li><a href="<%:Url.Action("Create","Article") %>" target="main">添加文章</a></li>
+                       
                     </ul>
                 </li>
                 <li class="has-sub ">
                     <a href="javascript:;">
                         <i class="icon-table"></i>
-                        <span class="title">产品</span>
+                        <span class="title">类别管理</span>
                         <span class="arrow "></span>
                     </a>
                     <ul class="sub">
-                        <li><a href="form_layout.html">Form Layouts</a></li>
-                        <li><a href="form_samples.html">Advance Form Samples</a></li>
-                        <li><a href="form_component.html">Form Components</a></li>
-                        <li><a href="form_wizard.html">Form Wizard</a></li>
-                        <li><a href="form_validation.html">Form Validation</a></li>
-                        <li><a href="form_fileupload.html">Multiple File Upload</a></li>
-                        <li><a href="form_dropzone.html">Dropzone File Upload</a></li>
+                         <li><a href="<%:Url.Action("Index","Category") %>" target="main">类别列表</a></li>
+                         <li><a href="<%:Url.Action("Create","Category") %>" target="main">添加分类</a></li>
                     </ul>
                 </li>
                 <li class="has-sub ">
