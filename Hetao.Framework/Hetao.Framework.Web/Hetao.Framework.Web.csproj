@@ -60,9 +60,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ApiControllerBase.cs" />
-    <Compile Include="attributes\AuthAttribite.cs" />
+    <Compile Include="Attributes\AuthAttribite.cs" />
+    <Compile Include="Attributes\HiddenAttribute.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\EasyUIGirdExtensions.cs" />
+    <Compile Include="Extensions\HtmlModelExtensions.cs" />
     <Compile Include="Extensions\HtmlFromExtensions.cs" />
     <Compile Include="Extensions\SiteMapExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.cs" />

@@ -293,7 +293,7 @@
                         <span class="arrow "></span>
                     </a>
                     <ul class="sub">
-                        <li><a href="<%:Url.Action("Index","Article") %>" target="main">文章列表</a></li>
+                        <li><a href="<%:Url.Action("List","Article") %>" target="main">文章列表</a></li>
                         <li><a href="<%:Url.Action("Create","Article") %>" target="main">添加文章</a></li>
                        
                     </ul>
@@ -305,7 +305,7 @@
                         <span class="arrow "></span>
                     </a>
                     <ul class="sub">
-                         <li><a href="<%:Url.Action("Index","Category") %>" target="main">类别列表</a></li>
+                         <li><a href="<%:Url.Action("List","Category") %>" target="main">类别列表</a></li>
                          <li><a href="<%:Url.Action("Create","Category") %>" target="main">添加分类</a></li>
                     </ul>
                 </li>

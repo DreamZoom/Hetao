@@ -17,13 +17,17 @@ namespace Hetao.Framework.Web
         protected ServiceBase<T> Service { get; set; }
 
         public Type ModelType { get; set; }
-        public ManageControllerBase(DbContextBsae context)
+        public ManageControllerBase()
         {
-            Service = new ServiceBase<T>(context);
+            Service = InitService();
             ModelType = typeof(T);
 
         }
 
+        public virtual ServiceBase<T> InitService()
+        {
+            throw new ArgumentException("未初始化Context");
+        }
 
         /// <summary>
         /// 获取数据列表

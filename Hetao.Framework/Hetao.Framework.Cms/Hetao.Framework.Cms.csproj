@@ -216,12 +216,15 @@
     <Content Include="App_Data\aspnet-Hetao.Framework.SamplePermission-20150915101343_log.ldf">
       <DependentUpon>aspnet-Hetao.Framework.SamplePermission-20150915101343.mdf</DependentUpon>
     </Content>
-    <Content Include="Areas\Manage\Views\Article\Create.aspx" />
     <Content Include="Areas\Manage\Views\Article\Index.aspx" />
-    <Content Include="Areas\Manage\Views\Category\Index.aspx" />
     <Content Include="Areas\Manage\Views\Main\Center.aspx" />
     <Content Include="Areas\Manage\Views\Main\Index.aspx" />
     <Content Include="Areas\Manage\Views\Main\Login.aspx" />
+    <Content Include="Areas\Manage\Views\Shared\Create.aspx" />
+    <Content Include="Areas\Manage\Views\Shared\Delete.aspx" />
+    <Content Include="Areas\Manage\Views\Shared\Details.aspx" />
+    <Content Include="Areas\Manage\Views\Shared\Edit.aspx" />
+    <Content Include="Areas\Manage\Views\Shared\List.aspx" />
     <Content Include="assets\img\arrow-down.png" />
     <Content Include="assets\img\avatar.png" />
     <Content Include="assets\img\avatar1.jpg" />
@@ -1821,6 +1824,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Manage\Models\" />
+    <Folder Include="Areas\Manage\Views\Category\" />
     <Folder Include="Themes\Commons\jquery-file-upload\server\php\files\thumbnail\" />
   </ItemGroup>
   <ItemGroup>

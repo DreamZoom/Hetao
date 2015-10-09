@@ -25,7 +25,10 @@ namespace System.Web.Mvc
             }
             #endregion
 
-            var propertys = typeof(T).GetProperties();
+
+            Type type = list.GetType().GetGenericArguments().FirstOrDefault();
+
+            var propertys = type.GetProperties();
 
             #region 表头
             List<string> headers = propertys.ToList().ConvertAll(m => getFiledName(m));

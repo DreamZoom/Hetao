@@ -9,7 +9,7 @@ using Hetao.Framework.Web;
 
 namespace Hetao.Framework.Cms.Areas.Manage.Controllers
 {
-    public class CategoryController  : ApiControllerBase<Category>
+    public class CategoryController : ManageControllerBase<Category>
     {
         //
         // GET: /Manage/Category/
@@ -25,9 +25,5 @@ namespace Hetao.Framework.Cms.Areas.Manage.Controllers
         }
 
 
-        public ActionResult getTreeCategorys()
-        {
-            return JsonList(((CategoryService)Service).getRoots());
-        }
     }
 }

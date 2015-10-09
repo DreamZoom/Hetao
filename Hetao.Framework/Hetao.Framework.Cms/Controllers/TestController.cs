@@ -13,8 +13,7 @@ namespace Hetao.Framework.Cms.Controllers
     public class TestController : ManageControllerBase<Models.Test>
         
     {
-        public TestController()
-            :base(new Models.TestContext())
+        public TestController()        
         {
 
         }

@@ -30,18 +30,7 @@
     <div class="row-fluid">
         <div class="span12">
 
-            <table  class="easyui-datagrid" remotesort="true" selectOnCheck="true" checkOnSelect="true" url='<%:Url.Action("list") %>' >
-                <thead>
-                    <tr>
-                        <th data-options="field:'ck'">全选</th>
-                        <th data-options="field:'itemid'">Item ID</th>
-                        <th data-options="field:'productid'">Product</th>
-                        <th data-options="field:'listprice',align:'right'">List Price</th>
-                        <th data-options="field:'attr1'">Attribute</th>
-                    </tr>
-                </thead>
-                
-            </table>
+            <%:Html.EasyUIGrid(Model) %>
         </div>
     </div>
 

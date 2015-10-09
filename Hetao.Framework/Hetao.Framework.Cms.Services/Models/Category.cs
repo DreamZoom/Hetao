@@ -19,13 +19,6 @@ namespace Hetao.Framework.Cms.Services.Models
 
         public int Sort { get; set; }
 
-        public int? ParentId { get; set; }
-
-        [ForeignKey("ParentId")]
-        public virtual Category Parent { get; set; }
-
-        public virtual ICollection<Category> children { get; set; }
-
         public virtual ICollection<Article> Articles { get; set; }
     }
 }

@@ -14,11 +14,5 @@ namespace Hetao.Framework.Cms.Services
         {
 
         }
-
-
-        public IEnumerable<Models.Category> getRoots()
-        {
-            return this.FindAll(m=>m.ParentId==null);
-        }
     }
 }
