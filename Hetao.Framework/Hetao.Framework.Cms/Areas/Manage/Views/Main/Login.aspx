@@ -28,44 +28,47 @@
     <!-- BEGIN LOGIN -->
     <div class="content">
         <!-- BEGIN LOGIN FORM -->
-        <form class="form-vertical login-form" action="<%:Url.Action("Login") %>" method="post">
-           
-            <h3 class="form-title">登录你的账户</h3>
-            <%if(!Html.ViewData.ModelState.IsValid) {%>
-            <div class="alert alert-error">
-                <button class="close" data-dismiss="alert"></button>
-                <span><%:Html.ValidationSummary() %></span>
-            </div>
-            <%} %>
-            <div class="control-group">
-                <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
-                <label class="control-label visible-ie8 visible-ie9">用户名</label>
-                <div class="controls">
-                    <div class="input-icon left">
-                        <i class="icon-user"></i>
-                        <input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="username" />
-                    </div>
+
+        <%using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-vertical login-form" }))
+          { %>
+        <h3 class="form-title">登录你的账户</h3>
+        <%if (!Html.ViewData.ModelState.IsValid)
+          {%>
+        <div class="alert alert-error">
+            <button class="close" data-dismiss="alert"></button>
+            <span><%:Html.ValidationSummary()%></span>
+        </div>
+        <%} %>
+        <%:Html.Hidden("back_url",Request["back_url"]) %>
+        <div class="control-group">
+            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+            <label class="control-label visible-ie8 visible-ie9">用户名</label>
+            <div class="controls">
+                <div class="input-icon left">
+                    <i class="icon-user"></i>
+                    <input class="m-wrap placeholder-no-fix" type="text" placeholder="用户名" name="username" />
                 </div>
             </div>
-            <div class="control-group">
-                <label class="control-label visible-ie8 visible-ie9">密码</label>
-                <div class="controls">
-                    <div class="input-icon left">
-                        <i class="icon-lock"></i>
-                        <input class="m-wrap placeholder-no-fix" type="password" placeholder="密码" name="password" />
-                    </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label visible-ie8 visible-ie9">密码</label>
+            <div class="controls">
+                <div class="input-icon left">
+                    <i class="icon-lock"></i>
+                    <input class="m-wrap placeholder-no-fix" type="password" placeholder="密码" name="password" />
                 </div>
             </div>
-            <div class="form-actions">
-                <label class="checkbox">
-                    <input type="checkbox" name="remember" value="1" />
-                    记住我
-                </label>
-                <button type="submit" class="btn green pull-right">
-                    Login <i class="m-icon-swapright m-icon-white"></i>
-                </button>
-            </div>
-           <%-- <div class="forget-password">
+        </div>
+        <div class="form-actions">
+            <label class="checkbox">
+                <input type="checkbox" name="remember" value="1" />
+                记住我
+            </label>
+            <button type="submit" class="btn green pull-right">
+                Login <i class="m-icon-swapright m-icon-white"></i>
+            </button>
+        </div>
+        <%-- <div class="forget-password">
                 <h4>忘记密码 ?</h4>
                 <p>
                     no worries, click <a href="javascript:;" class="" id="forget-password">here</a>
@@ -78,12 +81,12 @@
           <a href="javascript:;" id="register-btn" class="">Create an account</a>
                 </p>
             </div>--%>
+        <%} %>
 
-           
-        </form>
+
         <!-- END LOGIN FORM -->
         <!-- BEGIN FORGOT PASSWORD FORM -->
-       <%-- <form class="form-vertical forget-form" action="index.html">
+        <%-- <form class="form-vertical forget-form" action="index.html">
             <h3 class="">Forget Password ?</h3>
             <p>Enter your e-mail address below to reset your password.</p>
             <div class="control-group">
@@ -105,7 +108,7 @@
         </form>--%>
         <!-- END FORGOT PASSWORD FORM -->
         <!-- BEGIN REGISTRATION FORM -->
-       <%-- <form class="form-vertical register-form" action="index.html">
+        <%-- <form class="form-vertical register-form" action="index.html">
             <h3 class="">Sign Up</h3>
             <p>Enter your account details below:</p>
             <div class="control-group">

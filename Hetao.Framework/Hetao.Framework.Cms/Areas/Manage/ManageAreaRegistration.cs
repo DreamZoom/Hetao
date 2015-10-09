@@ -17,7 +17,7 @@ namespace Hetao.Framework.Cms.Areas.Manage
             context.MapRoute(
                 "Manage_default",
                 "Manage/{controller}/{action}/{id}",
-                new { action = "Index", id = UrlParameter.Optional }
+                new { action = "Center", controller="Main", id = UrlParameter.Optional }
             );
         }
     }

@@ -9,7 +9,7 @@ using Hetao.Framework.Web;
 
 namespace Hetao.Framework.Cms.Areas.Manage.Controllers
 {
-    public class CategoryController : ManageControllerBase<Category>
+    public class CategoryController : ManageControllerBase<Category, CategoryService>
     {
         //
         // GET: /Manage/Category/
@@ -18,12 +18,6 @@ namespace Hetao.Framework.Cms.Areas.Manage.Controllers
         {
             return View();
         }
-
-        public override Hetao.Framework.BLL.ServiceBase<Hetao.Framework.Cms.Services.Models.Category> InitService()
-        {
-            return new CategoryService();
-        }
-
 
     }
 }

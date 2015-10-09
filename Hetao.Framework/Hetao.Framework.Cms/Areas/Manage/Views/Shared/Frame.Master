@@ -5,37 +5,117 @@
 <html>
 <head runat="server">
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-	<meta content="" name="description" />
-	<meta content="" name="author" />
-    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
     <%: Styles.Render("~/theme/metronic") %>
-    <%: Scripts.Render("~/bundles/modernizr") %>
+    
     <link rel="shortcut icon" href="~/favicon.ico" />
+    <%: Scripts.Render("~/js/metronic") %>
+<%: Scripts.Render("~/bundles/modernizr") %>
     <style type="text/css">
-        .color-write{
-            background:#fff;
-        }
-        html{
-            background:#fff;
-        }
-
         .form-actions{
-            border-top:none;
-            background:rgba(0,0,0,0);
+            background-color:transparent;
         }
-
-      
     </style>
 </head>
-<body  >
-    <div class="page-container row-fluid color-write">
-        <asp:ContentPlaceHolder ID="MainContent" runat="server">
-        
-        </asp:ContentPlaceHolder>
+<body class="fixed-top">
+
+    <!-- BEGIN HEADER -->
+    <div class="header navbar navbar-inverse navbar-fixed-top">
+        <!-- BEGIN TOP NAVIGATION BAR -->
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <!-- BEGIN LOGO -->
+                <a class="brand" href="index.html">
+                    <img src="/assets/img/logo.png" alt="logo" />
+                </a>
+                <!-- END LOGO -->
+                <!-- BEGIN RESPONSIVE MENU TOGGLER -->
+                <a href="javascript:;" class="btn-navbar collapsed" data-toggle="collapse" data-target=".nav-collapse">
+                    <img src="/assets/img/menu-toggler.png" alt="" />
+                </a>
+                <!-- END RESPONSIVE MENU TOGGLER -->
+                <%:Html.Partial("_TopNav") %>
+            </div>
+        </div>
+        <!-- END TOP NAVIGATION BAR -->
     </div>
-    <%: Scripts.Render("~/js/metronic") %>
+    <!-- END HEADER -->
+
+    <div class="page-container row-fluid ">
+
+        <%--菜单--%>
+        <%:Html.Partial("_Menu") %>
+
+        <!-- BEGIN PAGE -->
+        <div class="page-content">
+            <!-- BEGIN SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <div id="portlet-config" class="modal hide">
+                <div class="modal-header">
+                    <button data-dismiss="modal" class="close" type="button"></button>
+                    <h3>Widget Settings</h3>
+                </div>
+                <div class="modal-body">
+                    <p>Here will be a configuration form</p>
+                </div>
+            </div>
+            <!-- END SAMPLE PORTLET CONFIGURATION MODAL FORM-->
+            <!-- BEGIN PAGE CONTAINER-->
+            <div class="container-fluid">
+
+                <div class="row-fluid">
+                    <div class="span12">
+
+                        <!-- BEGIN PAGE TITLE & BREADCRUMB-->
+                        <h3 class="page-title">文章管理				
+						
+                            <small>Articles</small>
+                        </h3>
+                        <ul class="breadcrumb">
+                            <li>
+                                <i class="icon-home"></i>
+                                <a href="#">文章管理</a>
+                                <i class="icon-angle-right"></i>
+                            </li>
+                            <li><a href="#">文章列表</a></li>
+
+                        </ul>
+                        <!-- END PAGE TITLE & BREADCRUMB-->
+                    </div>
+                </div>
+                <!-- 列表-->
+                <div class="row-fluid">
+                    <div class="span12">
+
+                       <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+                    </div>
+                </div>
+                
+
+            </div>
+            <!-- END PAGE CONTAINER-->
+        </div>
+        <!-- END PAGE -->
+
+    </div>
+    <!-- BEGIN FOOTER -->
+    <div class="footer">
+        2015 &copy; wxllzf
+		
+        <div class="span pull-right">
+            <span class="go-top"><i class="icon-angle-up"></i></span>
+        </div>
+    </div>
+    <!-- END FOOTER -->
     <script type="text/javascript">
-       
+        jQuery(document).ready(function () {
+            App.setPage("index");  // set current page
+            App.init(); // init the rest of plugins and elements
+        });
     </script>
 </body>
 </html>

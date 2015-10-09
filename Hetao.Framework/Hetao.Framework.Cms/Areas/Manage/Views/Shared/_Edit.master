@@ -1,0 +1,22 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Areas/Manage/Views/Shared/Frame.Master" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+    <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+    <%using (Html.BeginForm(null, null, FormMethod.Post, new { @class = "form-horizontal  form-row-stripped" }))
+      { %>
+    <div>
+        <%: Html.AntiForgeryToken() %>
+        <%: Html.ValidationSummary(true) %>
+    </div>
+   
+     <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+    <div class="form-actions">
+        <button type="submit" class="btn blue"><i class="icon-ok"></i>Save</button>
+        <button type="button" class="btn">Cancel</button>
+    </div>
+    <%} %>
+</asp:Content>

@@ -11,22 +11,18 @@ using Hetao.Framework.BLL;
 namespace Hetao.Framework.Web
 {
 
-    public class ManageControllerBase<T> : Controller
+    public class ManageControllerBase<T,S> : Controller
         where T : ModelBase
+        where S : ServiceBase<T>,new()
     {
-        protected ServiceBase<T> Service { get; set; }
+        protected S Service { get; set; }
 
         public Type ModelType { get; set; }
         public ManageControllerBase()
         {
-            Service = InitService();
+            Service = new S();
             ModelType = typeof(T);
 
-        }
-
-        public virtual ServiceBase<T> InitService()
-        {
-            throw new ArgumentException("未初始化Context");
         }
 
         /// <summary>
@@ -46,7 +42,7 @@ namespace Hetao.Framework.Web
         public virtual ActionResult Create()
         {
             ViewData.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, ModelType);
-            return View();
+            return View("Edit");
         }
 
         [HttpPost]
@@ -55,13 +51,13 @@ namespace Hetao.Framework.Web
             try
             {
                 Service.Insert(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             catch (Exception err)
             {
                 ViewData.ModelState.AddModelError("", err.Message);
             }
-            return View(model);
+            return View("Edit",model);
         }
 
 
@@ -81,7 +77,7 @@ namespace Hetao.Framework.Web
             try
             {
                 Service.Update(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             catch (Exception err)
             {
@@ -115,7 +111,7 @@ namespace Hetao.Framework.Web
             try
             {
                 Service.Delete(model);
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             catch (Exception err)
             {

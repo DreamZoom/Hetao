@@ -197,7 +197,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CategoryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TestController.cs" />
     <Compile Include="Filters\InitializeSimpleMembershipAttribute.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -217,14 +216,18 @@
       <DependentUpon>aspnet-Hetao.Framework.SamplePermission-20150915101343.mdf</DependentUpon>
     </Content>
     <Content Include="Areas\Manage\Views\Article\Index.aspx" />
+    <Content Include="Areas\Manage\Views\Category\Edit.aspx" />
+    <Content Include="Areas\Manage\Views\Category\List.aspx" />
     <Content Include="Areas\Manage\Views\Main\Center.aspx" />
-    <Content Include="Areas\Manage\Views\Main\Index.aspx" />
     <Content Include="Areas\Manage\Views\Main\Login.aspx" />
     <Content Include="Areas\Manage\Views\Shared\Create.aspx" />
     <Content Include="Areas\Manage\Views\Shared\Delete.aspx" />
     <Content Include="Areas\Manage\Views\Shared\Details.aspx" />
     <Content Include="Areas\Manage\Views\Shared\Edit.aspx" />
     <Content Include="Areas\Manage\Views\Shared\List.aspx" />
+    <Content Include="Areas\Manage\Views\Shared\_Menu.ascx" />
+    <Content Include="Areas\Manage\Views\Shared\_Result.aspx" />
+    <Content Include="Areas\Manage\Views\Shared\_TopNav.ascx" />
     <Content Include="assets\img\arrow-down.png" />
     <Content Include="assets\img\avatar.png" />
     <Content Include="assets\img\avatar1.jpg" />
@@ -372,6 +375,7 @@
     <Content Include="Areas\Manage\Views\Web.config" />
     <Content Include="Areas\Manage\Views\Shared\Frame.Master" />
     <Content Include="manage-web.sitemap" />
+    <Content Include="Areas\Manage\Views\Shared\_Edit.master" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
@@ -1824,7 +1828,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Areas\Manage\Models\" />
-    <Folder Include="Areas\Manage\Views\Category\" />
     <Folder Include="Themes\Commons\jquery-file-upload\server\php\files\thumbnail\" />
   </ItemGroup>
   <ItemGroup>

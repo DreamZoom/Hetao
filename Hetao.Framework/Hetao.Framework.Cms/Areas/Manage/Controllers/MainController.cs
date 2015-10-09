@@ -48,7 +48,7 @@ namespace Hetao.Framework.Cms.Areas.Manage.Controllers
                     }
                     else
                     {
-                        return RedirectToAction("index");
+                        return RedirectToAction("center");
                     }
 
                 }
