@@ -62,6 +62,10 @@
     <Compile Include="ApiControllerBase.cs" />
     <Compile Include="Attributes\AuthAttribite.cs" />
     <Compile Include="Attributes\HiddenAttribute.cs" />
+    <Compile Include="Config\ConfigSerializable.cs" />
+    <Compile Include="Config\ConfigService.cs" />
+    <Compile Include="Config\IConfig.cs" />
+    <Compile Include="Config\ISerializable.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\EasyUIGirdExtensions.cs" />
     <Compile Include="Extensions\EasyUIGrid.cs" />
