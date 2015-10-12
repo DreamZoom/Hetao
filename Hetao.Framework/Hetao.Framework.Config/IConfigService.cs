@@ -5,7 +5,9 @@ using System.Text;
 
 namespace Hetao.Framework.Config
 {
-    public interface IConfig
+    public interface IConfigService<T>
     {
+        void SaveConfig(T config);
+        T GetConfig();
     }
 }

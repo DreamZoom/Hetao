@@ -62,10 +62,8 @@
     <Compile Include="ApiControllerBase.cs" />
     <Compile Include="Attributes\AuthAttribite.cs" />
     <Compile Include="Attributes\HiddenAttribute.cs" />
-    <Compile Include="Config\ConfigSerializable.cs" />
-    <Compile Include="Config\ConfigService.cs" />
-    <Compile Include="Config\IConfig.cs" />
-    <Compile Include="Config\ISerializable.cs" />
+    <Compile Include="Config\SiteConfig.cs" />
+    <Compile Include="Config\SiteConfigService.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\EasyUIGirdExtensions.cs" />
     <Compile Include="Extensions\EasyUIGrid.cs" />
@@ -80,6 +78,10 @@
     <ProjectReference Include="..\Hetao.Framework.BLL\Hetao.Framework.BLL.csproj">
       <Project>{d1f0c70f-021c-4353-854e-d5b9b56a8521}</Project>
       <Name>Hetao.Framework.BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Hetao.Framework.Config\Hetao.Framework.Config.csproj">
+      <Project>{5b8590d3-1f31-45bf-9c7e-7f41fc5e2579}</Project>
+      <Name>Hetao.Framework.Config</Name>
     </ProjectReference>
     <ProjectReference Include="..\Hetao.Framework.Contract\Hetao.Framework.Contract.csproj">
       <Project>{01319eeb-28cd-4822-8a3f-8902099e27d6}</Project>

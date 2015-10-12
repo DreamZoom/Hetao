@@ -43,10 +43,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConfigSerializable.cs" />
-    <Compile Include="ConfigService.cs" />
+    <Compile Include="XmlConfigService.cs" />
     <Compile Include="IConfig.cs" />
-    <Compile Include="ISerializable.cs" />
+    <Compile Include="IConfigService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
