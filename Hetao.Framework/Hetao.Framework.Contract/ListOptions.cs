@@ -17,7 +17,7 @@ namespace Hetao.Framework.Contract
         }
 
 
-        private int pagesize = 20;
+        private int pagesize = 1;
 
         public int PageSize
         {

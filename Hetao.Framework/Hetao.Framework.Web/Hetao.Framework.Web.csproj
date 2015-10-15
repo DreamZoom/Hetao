@@ -69,6 +69,7 @@
     <Compile Include="Extensions\EasyUIGrid.cs" />
     <Compile Include="Extensions\HtmlModelExtensions.cs" />
     <Compile Include="Extensions\HtmlFromExtensions.cs" />
+    <Compile Include="Extensions\PagerExtendsions.cs" />
     <Compile Include="Extensions\SiteMapExtensions.cs" />
     <Compile Include="Extensions\UrlExtensions.cs" />
     <Compile Include="ManageControllerBase.cs" />

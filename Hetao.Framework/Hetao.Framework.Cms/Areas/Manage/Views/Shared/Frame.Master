@@ -11,13 +11,13 @@
         <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
     </title>
     <%: Styles.Render("~/theme/metronic") %>
-    
+
     <link rel="shortcut icon" href="~/favicon.ico" />
     <%: Scripts.Render("~/js/metronic") %>
-<%: Scripts.Render("~/bundles/modernizr") %>
+    <%--<%: Scripts.Render("~/bundles/modernizr") %>--%>
     <style type="text/css">
-        .form-actions{
-            background-color:transparent;
+        .form-actions {
+            background-color: transparent;
         }
     </style>
 </head>
@@ -90,11 +90,11 @@
                 <div class="row-fluid">
                     <div class="span12">
 
-                       <asp:ContentPlaceHolder ID="MainContent" runat="server">
-                </asp:ContentPlaceHolder>
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
                     </div>
                 </div>
-                
+
 
             </div>
             <!-- END PAGE CONTAINER-->

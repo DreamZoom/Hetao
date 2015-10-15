@@ -1598,6 +1598,7 @@
     <Content Include="Themes\Metronic\img\sidebar-toggler.png" />
     <Content Include="Themes\Metronic\img\syncfusion-icons-white.png" />
     <Content Include="Themes\Metronic\img\syncfusion-icons.png" />
+    <Content Include="Themes\Metronic\js\app - 复制.js" />
     <Content Include="Themes\Metronic\js\app.js" />
     <Content Include="Themes\Metronic\js\demo.gmaps.js" />
     <Content Include="Themes\Metronic\js\excanvas.js" />
