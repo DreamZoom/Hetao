@@ -44,7 +44,7 @@ namespace Hetao.Framework.BLL
 
         public List<T> FindAll(Expression<Func<T, bool>> conditions = null)
         {
-            return DbContext.FindAll<T>(conditions);
+            return DbContext.FindAll<T>(conditions).;
         }
 
         public PagedList<T> FindAllByPage<S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) 

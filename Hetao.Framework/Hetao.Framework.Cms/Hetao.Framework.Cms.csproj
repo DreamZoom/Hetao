@@ -215,7 +215,8 @@
     <Content Include="App_Data\aspnet-Hetao.Framework.SamplePermission-20150915101343_log.ldf">
       <DependentUpon>aspnet-Hetao.Framework.SamplePermission-20150915101343.mdf</DependentUpon>
     </Content>
-    <Content Include="Areas\Manage\Views\Article\Index.aspx" />
+    <Content Include="Areas\Manage\Views\Article\Edit.aspx" />
+    <Content Include="Areas\Manage\Views\Article\List.aspx" />
     <Content Include="Areas\Manage\Views\Category\Edit.aspx" />
     <Content Include="Areas\Manage\Views\Category\List.aspx" />
     <Content Include="Areas\Manage\Views\Main\Center.aspx" />

@@ -26,11 +26,54 @@ namespace Hetao.Framework.Contract
                 string v = request.Params[p.Name];
                 if (string.IsNullOrWhiteSpace(v)) continue;
 
+                var value = Convert.ChangeType(v, p.PropertyType);
+
                 MemberExpression member = Expression.Property(exp_T, p);
-                Expression valueExpression = Expression.Convert(Expression.Constant(v), p.PropertyType);
+                Expression valueExpression = Expression.Convert(Expression.Constant(value), p.PropertyType);
                 var exps = Expression.Equal(member, valueExpression);
 
                 where = Expression.And(where, exps);
+            }
+
+            Expression<Func<TSource, bool>> wherefunc = null;
+
+            wherefunc = Expression.Lambda<Func<TSource, bool>>(where, exp_T);
+
+
+            return source.Where(wherefunc);
+
+        }
+
+        public static IQueryable<TSource> WhereIDs<TSource>(this IQueryable<TSource> source, HttpRequestBase request)
+        {
+
+            ParameterExpression exp_T = Expression.Parameter(typeof(TSource), "TSource"); //参数a
+            var propertys = typeof(TSource).GetProperties();
+
+            Expression where = Expression.Constant(true);
+            foreach (var p in propertys)
+            {
+                string v = request.Params[p.Name];
+                if (string.IsNullOrWhiteSpace(v)) continue;
+
+                var vs = v.Split(',');
+
+                if (vs.Count() <= 0) continue;
+                if (vs.Count() == 1)
+                {
+                    var value = Convert.ChangeType(v, p.PropertyType);
+
+                    MemberExpression member = Expression.Property(exp_T, p);
+                    Expression valueExpression = Expression.Convert(Expression.Constant(value), p.PropertyType);
+                    var exps = Expression.Equal(member, valueExpression);
+
+                    where = Expression.And(where, exps);
+                }
+                else
+                {
+                    
+                }
+
             }
 
             Expression<Func<TSource, bool>> wherefunc = null;
@@ -57,7 +100,7 @@ namespace Hetao.Framework.Contract
                 string v = request.Params[key];
                 if (string.IsNullOrWhiteSpace(v)) continue;
 
-                source = source.SortBy<TSource>(p.Name+" "+v);//多字段排序      
+                source = source.SortBy<TSource>(p.Name + " " + v);//多字段排序      
                 count++;
             }
 
