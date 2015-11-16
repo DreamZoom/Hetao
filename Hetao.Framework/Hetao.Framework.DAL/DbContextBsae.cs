@@ -44,6 +44,13 @@ namespace Hetao.Framework.DAL
             this.SaveChanges();
         }
 
+        public void DeleteList<T>(HttpRequestBase request) where T : ModelBase
+        {
+            var list = this.Set<T>().WhereIDs(request);
+            this.Set<T>().RemoveRange(list);
+            this.SaveChanges();
+        }
+
         public T Find<T>(params object[] keyValues) where T : ModelBase
         {
             return this.Set<T>().Find(keyValues);

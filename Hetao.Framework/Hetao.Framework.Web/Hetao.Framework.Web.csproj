@@ -62,8 +62,14 @@
     <Compile Include="ApiControllerBase.cs" />
     <Compile Include="Attributes\AuthAttribite.cs" />
     <Compile Include="Attributes\HiddenAttribute.cs" />
+    <Compile Include="Attributes\TextAttribute.cs" />
+    <Compile Include="Auth\AuthorProvider.cs" />
+    <Compile Include="Auth\DefaultAuther.cs" />
+    <Compile Include="Auth\IAuthor.cs" />
+    <Compile Include="Config\AdminMenuConfig.cs" />
     <Compile Include="Config\SiteConfig.cs" />
     <Compile Include="Config\SiteConfigService.cs" />
+    <Compile Include="Core\MainController.cs" />
     <Compile Include="Extensions\ControllerExtensions.cs" />
     <Compile Include="Extensions\EasyUIGirdExtensions.cs" />
     <Compile Include="Extensions\EasyUIGrid.cs" />

@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Hetao.Framework.Web.Config;
+using Hetao.Framework.Web;
+using Hetao.Framework.Config;
 
 namespace Hetao.Framework.Cms.Controllers
 {
@@ -11,7 +14,7 @@ namespace Hetao.Framework.Cms.Controllers
         public ActionResult Index()
         {
             ViewBag.Message = "Modify this template to jump-start your ASP.NET MVC application.";
-
+           
             return View();
         }
 

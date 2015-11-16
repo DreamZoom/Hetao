@@ -149,11 +149,127 @@ var App = function () {
 
     var handleJQVMAP = function () {
 
-        
+        //var showMap = function (name) {
+        //    jQuery('.vmaps').hide();
+        //    jQuery('#vmap_' + name).show();
+        //}
+
+        //var setMap = function (name) {
+        //    var data = {
+        //        map: 'world_en',
+        //        backgroundColor: null,
+        //        borderColor: '#333333',
+        //        borderOpacity: 0.5,
+        //        borderWidth: 1,
+        //        color: '#c6c6c6',
+        //        enableZoom: true,
+        //        hoverColor: '#c9dfaf',
+        //        hoverOpacity: null,
+        //        values: sample_data,
+        //        normalizeFunction: 'linear',
+        //        scaleColors: ['#b6da93', '#909cae'],
+        //        selectedColor: '#c9dfaf',
+        //        selectedRegion: null,
+        //        showTooltip: true,
+        //        onLabelShow: function (event, label, code) {
+
+        //        },
+        //        onRegionOver: function (event, code) {
+        //            if (code == 'ca') {
+        //                event.preventDefault();
+        //            }
+        //        },
+        //        onRegionClick: function (element, code, region) {
+        //            var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+        //            alert(message);
+        //        }
+        //    };
+
+        //    data.map = name + '_en';
+        //    var map = jQuery('#vmap_' + name);
+        //    if (!map) {
+        //        return;
+        //    }
+        //    map.width(map.parent().parent().width());
+        //    map.show();
+        //    map.vectorMap(data);
+        //    map.hide();
+        //}
+
+        //setMap("world");
+        //setMap("usa");
+        //setMap("europe");
+        //setMap("russia");
+        //setMap("germany");
+        //showMap("world");
+
+        //jQuery('#regional_stat_world').click(function () {
+        //    showMap("world");
+        //});
+
+        //jQuery('#regional_stat_usa').click(function () {
+        //    showMap("usa");
+        //});
+
+        //jQuery('#regional_stat_europe').click(function () {
+        //    showMap("europe");
+        //});
+        //jQuery('#regional_stat_russia').click(function () {
+        //    showMap("russia");
+        //});
+        //jQuery('#regional_stat_germany').click(function () {
+        //    showMap("germany");
+        //});
+
+        //$('#region_statistics_loading').hide();
+        //$('#region_statistics_content').show();
     }
 
     var handleAllJQVMAP = function () {
-        
+        //var setMap = function (name) {
+        //    var data = {
+        //        map: 'world_en',
+        //        backgroundColor: null,
+        //        borderColor: '#333333',
+        //        borderOpacity: 0.5,
+        //        borderWidth: 1,
+        //        color: '#c6c6c6',
+        //        enableZoom: true,
+        //        hoverColor: '#c9dfaf',
+        //        hoverOpacity: null,
+        //        values: sample_data,
+        //        normalizeFunction: 'linear',
+        //        scaleColors: ['#b6da93', '#427d1a'],
+        //        selectedColor: '#c9dfaf',
+        //        selectedRegion: null,
+        //        showTooltip: true,
+        //        onRegionOver: function (event, code) {
+        //            //sample to interact with map
+        //            if (code == 'ca') {
+        //                event.preventDefault();
+        //            }
+        //        },
+        //        onRegionClick: function (element, code, region) {
+        //            //sample to interact with map
+        //            var message = 'You clicked "' + region + '" which has the code: ' + code.toUpperCase();
+        //            alert(message);
+        //        }
+        //    };
+
+        //    data.map = name + '_en';
+        //    var map = jQuery('#vmap_' + name);
+        //    if (!map) {
+        //        return;
+        //    }
+        //    map.width(map.parent().width());
+        //    map.vectorMap(data);
+        //}
+
+        //setMap("world");
+        //setMap("usa");
+        //setMap("europe");
+        //setMap("russia");
+        //setMap("germany");
     }
 
     var handleDashboardCalendar = function () {
@@ -2048,7 +2164,7 @@ var App = function () {
             }]
         });
 
-        jQuery('#sample_1 .group-checkable').change(function () {
+        jQuery('.group-checkable').change(function () {
             var set = jQuery(this).attr("data-set");
             var checked = jQuery(this).is(":checked");
             jQuery(set).each(function () {
@@ -3038,13 +3154,79 @@ var App = function () {
         });
     }
 
-    
+    var handleTree = function () {
+
+        // handle collapse/expand for tree_1
+        $('#tree_1_collapse').click(function () {
+            $('.tree-toggle', $('#tree_1 > li > ul')).addClass("closed");
+            $('.branch', $('#tree_1 > li > ul')).removeClass("in");
+        });
+
+        $('#tree_1_expand').click(function () {
+            $('.tree-toggle', $('#tree_1 > li > ul')).removeClass("closed");
+            $('.branch', $('#tree_1 > li > ul')).addClass("in");
+        });
+
+        // handle collapse/expand for tree_2
+        $('#tree_2_collapse').click(function () {
+            $('.tree-toggle', $('#tree_2 > li > ul')).addClass("closed");
+            $('.branch', $('#tree_2 > li > ul')).removeClass("in");
+        });
+
+        $('#tree_2_expand').click(function () {
+            //$('.tree-toggle', $('#tree_2 > li > ul')).removeClass("closed");
+            // iterate tree nodes and exppand all nodes
+            $('.tree-toggle', $('#tree_2 > li > ul')).each(function () {
+                $(this).click(); //trigger tree node click
+            });
+            $('.branch', $('#tree_2 > li > ul')).addClass("in");
+        });
+
+        //This is a quick example of capturing the select event on tree leaves, not branches
+        $("#tree_1").on("nodeselect.tree.data-api", "[data-role=leaf]", function (e) {
+            var output = "";
+
+            output += "Node nodeselect event fired:\n";
+            output += "Node Type: leaf\n";
+            output += "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n";
+            output += "Parentage: " + e.node.parentage.join("/");
+
+            alert(output);
+        });
+
+        //This is a quick example of capturing the select event on tree branches, not leaves
+        $("#tree_1").on("nodeselect.tree.data-api", "[role=branch]", function (e) {
+            var output = "Node nodeselect event fired:\n"; + "Node Type: branch\n" + "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n" + "Parentage: " + e.node.parentage.join("/") + "\n"
+
+            alert(output);
+        })
+
+        //Listening for the 'openbranch' event. Look for e.node, which is the actual node the user opens
+
+        $("#tree_1").on("openbranch.tree", "[data-toggle=branch]", function (e) {
+
+            var output = "Node openbranch event fired:\n" + "Node Type: branch\n" + "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n" + "Parentage: " + e.node.parentage.join("/") + "\n"
+
+            alert(output);
+        })
+
+
+        //Listening for the 'closebranch' event. Look for e.node, which is the actual node the user closed
+
+        $("#tree_1").on("closebranch.tree", "[data-toggle=branch]", function (e) {
+
+            var output = "Node closebranch event fired:\n" + "Node Type: branch\n" + "Value: " + ((e.node.value) ? e.node.value : e.node.el.text()) + "\n" + "Parentage: " + e.node.parentage.join("/") + "\n"
+
+            alert(output);
+        })
+    }
+
     return {
 
         //main function to initiate template pages
         init: function () {
             handleResponsive(); // set and handle responsive
-           // handleUniform(); // handles uniform elements
+            handleUniform(); // handles uniform elements
             // page level handlers
             if (App.isPage("index")) {
                 handleDashboardCharts(); // handles plot charts for main page
@@ -3054,45 +3236,48 @@ var App = function () {
                 //handleIntro(); // this is for demo purpose. you may enable or disable this function.
             }
 
-            //if (App.isPage("grids")) {
-            //    handlePortletSortable(); // handles full calendars
-            //}
+            if (App.isPage("grids")) {
+                handlePortletSortable(); // handles full calendars
+            }
 
-            //if (App.isPage("calendar")) {
-            //    handleCalendar(); // handles full calendars
-            //}
+            if (App.isPage("calendar")) {
+                handleCalendar(); // handles full calendars
+            }
 
-            //if (App.isPage("maps_vector")) {
-            //    handleAllJQVMAP(); // handles vector maps for interactive map page
-            //}
+            if (App.isPage("maps_vector")) {
+                handleAllJQVMAP(); // handles vector maps for interactive map page
+            }
 
-            //if (App.isPage("charts")) {
-            //    handleCharts(); // handles plot charts
-            //    handleChartGraphs();
-            //}
+            if (App.isPage("charts")) {
+                handleCharts(); // handles plot charts
+                handleChartGraphs();
+            }
 
-            //if (App.isPage("sliders")) {
-            //    handleSliders();
-            //    handlKnobElements()
-            //}
+            if (App.isPage("sliders")) {
+                handleSliders();
+                handlKnobElements()
+            }
 
-            //if (App.isPage("table_editable")) {
-            //    handleEditableTables(); // handle editable tables
-            //}
+            if (App.isPage("table_editable")) {
+                handleEditableTables(); // handle editable tables
+            }
 
-            //if (App.isPage("table_managed")) {
-            //    //handleTables(); // handles data tables
-            //}
+            if (App.isPage("table_managed")) {
+                handleTables(); // handles data tables
+            }
 
-            //if (App.isPage("ui_nestable")) {
-            //    handleNestableList(); // handles tree view samples
-            //}
+            if (App.isPage("ui_nestable")) {
+                handleNestableList(); // handles tree view samples
+            }
 
-            //if (App.isPage("form_validation")) {
-            //    handleFormValidation(); // handles form validation samples
-            //}
+            if (App.isPage("form_validation")) {
+                handleFormValidation(); // handles form validation samples
+            }
 
-           
+            if (App.isPage("ui_tree")) {
+                handleTree();
+            }
+
             // global handlers
             handleChoosenSelect(); // handles bootstrap chosen dropdowns
             handleScrollers(); // handles slim scrolling contents            
@@ -3100,7 +3285,7 @@ var App = function () {
             handleDateTimePickers(); //handles form timepickers
             handleClockfaceTimePickers(); //handles form clockface timepickers
             handleColorPicker(); // handles form color pickers            
-            //handlePortletTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)
+            handlePortletTools(); // handles portlet action bar functionality(refresh, configure, toggle, remove)
             handlePulsate(); // handles pulsate functionality on page elements
             handleGritterNotifications(); // handles gritter notifications
             handleTooltip(); // handles bootstrap tooltips

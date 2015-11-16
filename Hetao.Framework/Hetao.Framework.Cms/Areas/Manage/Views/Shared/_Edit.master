@@ -15,8 +15,8 @@
      <asp:ContentPlaceHolder ID="MainContent" runat="server" />
 
     <div class="form-actions">
-        <button type="submit" class="btn blue"><i class="icon-ok"></i>Save</button>
-        <button type="button" class="btn">Cancel</button>
+        <button type="submit" class="btn blue"><i class="icon-ok"></i>保存</button>
+        <button type="button" class="btn">取消</button>
     </div>
     <%} %>
 </asp:Content>

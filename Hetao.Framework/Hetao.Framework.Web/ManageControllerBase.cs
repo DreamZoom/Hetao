@@ -41,6 +41,7 @@ namespace Hetao.Framework.Web
         #region 添加记录
         public virtual ActionResult Create()
         {
+            ForignKeyData(null);
             ViewData.ModelMetadata = ModelMetadataProviders.Current.GetMetadataForType(null, ModelType);
             return View("Edit");
         }
@@ -57,17 +58,25 @@ namespace Hetao.Framework.Web
             {
                 ViewData.ModelState.AddModelError("", err.Message);
             }
+            ForignKeyData(null);
             return View("Edit",model);
         }
 
 
         #endregion
 
+        public virtual void ForignKeyData(T model)
+        {
+
+        }
+
         #region 删除记录
         public virtual ActionResult Edit()
         {
             var model = Service.Find(Request);
+           
             if (model == null) return Error("未找到记录");
+            ForignKeyData(model);
             return View(model);
         }
 
@@ -83,6 +92,7 @@ namespace Hetao.Framework.Web
             {
                 ViewData.ModelState.AddModelError("", err.Message);
             }
+            ForignKeyData(model);
             return View(model);
         }
         #endregion
@@ -122,6 +132,20 @@ namespace Hetao.Framework.Web
 
         #endregion
 
+
+        public virtual ActionResult DeleteList()
+        {
+            try
+            {
+                Service.DeleteList(HttpContext.Request);
+                return RedirectToAction("List");
+            }
+            catch (Exception err)
+            {
+                return Error(err.Message);
+            }
+           
+        }
 
         #region 结果展示
 

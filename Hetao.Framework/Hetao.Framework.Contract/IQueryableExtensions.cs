@@ -71,7 +71,29 @@ namespace Hetao.Framework.Contract
                 }
                 else
                 {
-                    
+                    //m=>vs.Contains(m.ID)
+                    //MemberExpression member = Expression.Property(exp_T, p);
+                    //var  parameter = Expression.Parameter(typeof(string),"");
+
+                    //MethodCallExpression expCall = Expression.Call(
+                    //    Expression.Constant(vs), 
+                    //    typeof(string).GetMethod("Contains",  BindingFlags.Public),
+                    //    member);
+                    //var exp = Expression.Lambda<Func<string, bool>>(expCall, parameter);
+
+                    //where = Expression.And(where, exp);
+                    Expression or = Expression.Constant(false);
+                    foreach(var val in vs){
+                        var value = Convert.ChangeType(val, p.PropertyType);
+
+                        MemberExpression member = Expression.Property(exp_T, p);
+                        Expression valueExpression = Expression.Convert(Expression.Constant(value), p.PropertyType);
+                        var exps = Expression.Equal(member, valueExpression);
+
+                        or = Expression.Or(or, exps);
+                    }
+
+                    where = Expression.And(where, or);
                 }
 
             }

@@ -53,7 +53,8 @@ namespace Hetao.Framework.Cms
                     "~/Themes/Commons/uniform/css/uniform.default.css",
                     "~/Themes/Commons/jquery-easyui/themes/bootstrap/easyui.css",
                     "~/Themes/Commons/jquery-easyui/themes/color.css",
-                    "~/Themes/Commons/jquery-easyui/themes/icon.css"
+                    "~/Themes/Commons/jquery-easyui/themes/icon.css",
+                    "~/Plus/kindeditor/themes/default/default.css"
                 ));
 
             bundles.Add(new ScriptBundle("~/js/metronic").Include(
@@ -73,8 +74,13 @@ namespace Hetao.Framework.Cms
                    "~/Themes/Metronic/js/jquery.blockui.js",
                    "~/Themes/Metronic/js/jquery.cookie.js",
                    "~/Themes/Metronic/js/jquery.pulsate.js",
-                   "~/Themes/Metronic/js/app.js"
+                   "~/Themes/Metronic/js/app.js",
+                   "~/Themes/Metronic/js/admin.main.js",
+                   "~/Plus/kindeditor/kindeditor.js"
                 ));
+
+
+            
         }
     }
 }

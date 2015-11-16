@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controllters\ResourceController.cs" />
     <Compile Include="Models\Article.cs" />
     <Compile Include="Models\Category.cs" />
     <Compile Include="Models\CmsContext.cs" />

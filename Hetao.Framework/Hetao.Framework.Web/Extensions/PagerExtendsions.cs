@@ -21,5 +21,18 @@ namespace System.Web.Mvc
                 //NavigationPagerItemWrapperFormatString = "<li>{0}</li>"
             });
         }
+
+        public static MvcHtmlString MvcPager(this HtmlHelper helper, object list)
+        {
+            return helper.Pager((IPagedList)list, new PagerOptions()
+            {
+                CssClass = "pagination",
+                ContainerTagName = "div",
+                HorizontalAlign = "right",
+                PageIndexParameterName = "Page",
+                //CurrentPagerItemWrapperFormatString="<li class=\"current\">{0}</li>",
+                //NavigationPagerItemWrapperFormatString = "<li>{0}</li>"
+            });
+        }
     }
 }

@@ -38,7 +38,6 @@ namespace Hetao.Framework.Web
         {
             var options = new EasyUIPageOptions();
             TryUpdateModel(options);
-
             var list = Service.FindAllByPage(Request, options.Rows ,options.Page);
             return this.JsonEasyUIList(list);
         }

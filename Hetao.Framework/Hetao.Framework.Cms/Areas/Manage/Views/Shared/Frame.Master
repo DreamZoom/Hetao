@@ -68,21 +68,28 @@
 
                 <div class="row-fluid">
                     <div class="span12">
-
+                        <%
+                            var CurrentMenu = Hetao.Framework.Web.Config.AdminMenuService.Current.getMenuNode(Html);
+                        %>
                         <!-- BEGIN PAGE TITLE & BREADCRUMB-->
-                        <h3 class="page-title">文章管理				
+                        <%if(CurrentMenu!=null){ %>
+                        <h3 class="page-title">
+                            <%:CurrentMenu.Name %>				
 						
-                            <small>Articles</small>
+                            <small><%:CurrentMenu.Descript %></small>
                         </h3>
                         <ul class="breadcrumb">
+                            <%if(CurrentMenu.Parent!=null){ %>
                             <li>
                                 <i class="icon-home"></i>
-                                <a href="#">文章管理</a>
+                                <a href="#"><%:CurrentMenu.Parent.Name %></a>
                                 <i class="icon-angle-right"></i>
                             </li>
-                            <li><a href="#">文章列表</a></li>
+                            <%} %>
+                            <li><a href="#"><%:CurrentMenu.Name %></a></li>
 
                         </ul>
+                        <%} %>
                         <!-- END PAGE TITLE & BREADCRUMB-->
                     </div>
                 </div>

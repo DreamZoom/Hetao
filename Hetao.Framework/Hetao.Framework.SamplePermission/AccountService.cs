@@ -33,5 +33,13 @@ namespace Hetao.Framework.SamplePermission
             return account;
         }
 
+
+        public Account getUser(string username, string password)
+        {
+
+            var account = this.FindAll(m => m.UserName == username && m.Password == password).FirstOrDefault();
+           
+            return account;
+        }
     }
 }

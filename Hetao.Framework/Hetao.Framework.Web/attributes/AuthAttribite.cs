@@ -4,33 +4,32 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.Mvc;
+using Hetao.Framework.Web.Auth;
 
 namespace Hetao.Framework.Web
 {
 
-    public class AuthFilter : ActionFilterAttribute
+    public class AuthorFilter : ActionFilterAttribute
     {
-        string sessionID = "";
-        string backurl = "";
-        string loginurl = "";
-        public AuthFilter(string roleID, string loginurl, string backurl = "")
+     
+        public AuthorFilter()
         {
-            this.sessionID = roleID;
-            this.loginurl = loginurl;
-            this.backurl = backurl;
+           
         }
         public override void OnActionExecuting(ActionExecutingContext filterContext)
         {
             var controllerName = filterContext.ActionDescriptor.ControllerDescriptor.ControllerName;
             var actionName = filterContext.ActionDescriptor.ActionName;
 
-            var returnUrl = loginurl;
+            var loginUrl = AuthorProvider.Admin.getLoginUrl(filterContext.RequestContext);
             var url = filterContext.HttpContext.Request.Url.ToString();
-            returnUrl += "?back_url=" + (string.IsNullOrWhiteSpace(this.backurl) ? url : this.backurl);
 
-            if (filterContext.HttpContext.Session[sessionID] == null)
+            loginUrl += "?back_url=" +  url ;
+
+            AuthorProvider.Admin.hasAuth(filterContext.HttpContext);
+            if (!AuthorProvider.Admin.hasAuth(filterContext.HttpContext))
             {
-                filterContext.Result = new RedirectResult(returnUrl);
+                filterContext.Result = new RedirectResult(loginUrl);
                 return;
             }
             base.OnActionExecuting(filterContext);

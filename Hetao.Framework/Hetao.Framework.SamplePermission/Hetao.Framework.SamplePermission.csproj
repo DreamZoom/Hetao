@@ -54,6 +54,7 @@
     <Compile Include="Models\Account.cs" />
     <Compile Include="Models\AccountContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SampleAuthor.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Hetao.Framework.BLL\Hetao.Framework.BLL.csproj">

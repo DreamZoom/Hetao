@@ -52,7 +52,7 @@ namespace Hetao.Framework.Web.Extensions
             #endregion
 
             StringBuilder tBody = new StringBuilder();
-            tBody.AppendLine("<table class=\"easyui-datagrid\" fitColumns=\"true\"  >");
+            tBody.AppendLine("<table class=\"easyui-datagrid\" fitColumns=\"true\" id=\"table-datagrid\" >");
             tBody.AppendLine(tHead);
             tBody.AppendLine("<tbody>");
             foreach (var model in DataList)
@@ -78,7 +78,8 @@ namespace Hetao.Framework.Web.Extensions
 
         private string getFiledName(PropertyInfo property)
         {
-            return string.Format("<th field=\"{0}\">{0}</th>", property.Name);
+            var metadata =ModelMetadataProviders.Current.GetMetadataForProperty(null, typeof(T), property.Name);
+            return string.Format("<th field=\"{0}\">{1}</th>",property.Name, metadata.DisplayName ?? property.Name);
         }
 
         private string getFiledValue(PropertyInfo property, T model)
