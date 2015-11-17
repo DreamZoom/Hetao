@@ -16,7 +16,7 @@
 
     <div class="form-actions">
         <button type="submit" class="btn blue"><i class="icon-ok"></i>保存</button>
-        <button type="button" class="btn">取消</button>
+        <a href="<%:Url.BackUrl() %>" class="btn">返回</a>
     </div>
     <%} %>
 </asp:Content>

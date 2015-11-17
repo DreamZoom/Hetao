@@ -78,7 +78,7 @@
 $(function () {
     $("#checkall").bind("click", function () {
         var ischecked = this.checked;
-        $("input:checkbox[name='ids']").each(function () {
+        $("input:checkbox[name='Id']").each(function () {
             this.checked = ischecked;
         });
 

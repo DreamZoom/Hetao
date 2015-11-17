@@ -14,7 +14,12 @@ namespace Hetao.Framework.CmsService.Controllters
         {
             ChannelService channelService = new ChannelService();
             var channel = channelService.FindAll();
-            ViewBag.Channel_Id = new SelectList(channel, "Id", "ChannelName", "请选择频道...");
+            int id = 0;
+            if (model != null)
+            {
+                id = model.Channel_Id;
+            }
+            ViewBag.Channel_Id = new SelectList(channel, "Id", "ChannelName", id);
 
             AttributeTagService tagService = new AttributeTagService();
             var tags = tagService.FindAll(m => m.IsSystem);

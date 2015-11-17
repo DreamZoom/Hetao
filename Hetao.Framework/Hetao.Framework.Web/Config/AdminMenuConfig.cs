@@ -94,7 +94,8 @@ namespace Hetao.Framework.Web.Config
         public List<MenuNode> Menus { get; set; }
         [XmlAttribute]
         public bool IsGroup { get; set; }
-
+        [XmlAttribute]
+        public string Param { get; set; }
         public bool IsCurrent(HtmlHelper helper)
         {
             var controller = helper.ViewContext.RouteData.Values["controller"].ToString();

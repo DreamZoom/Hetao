@@ -11,7 +11,7 @@ namespace Hetao.Framework.CmsService
 {
     public enum ResourceType
     {
-        article,
+        Text,
         video,
         music,
         images,
@@ -19,6 +19,11 @@ namespace Hetao.Framework.CmsService
     }
     public class Resource : ModelBase
     {
+
+        public Resource()
+        {
+            this.AddTime = DateTime.Now;
+        }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
         [Display(Name="编号")]
@@ -51,6 +56,7 @@ namespace Hetao.Framework.CmsService
         /// 
          [Display(Name = "频道Id")]
         public int Channel_Id { get; set; }
+        [ForeignKey("Channel_Id")]
         public virtual Channel Channel { get; set; }
 
         public virtual ICollection<AttributeTag> Tags { get; set; }

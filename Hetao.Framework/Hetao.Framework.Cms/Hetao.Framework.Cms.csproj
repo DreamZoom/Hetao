@@ -224,6 +224,8 @@
     <Content Include="Areas\Manage\Views\Shared\Details.aspx" />
     <Content Include="Areas\Manage\Views\Shared\Edit.aspx" />
     <Content Include="Areas\Manage\Views\Shared\EditorTemplates\Text.ascx" />
+    <Content Include="Areas\Manage\Views\Shared\EditorTemplates\Images.ascx" />
+    <Content Include="Areas\Manage\Views\Shared\EditorTemplates\Video.ascx" />
     <Content Include="Areas\Manage\Views\Shared\List.aspx" />
     <Content Include="Areas\Manage\Views\Shared\_Menu.ascx" />
     <Content Include="Areas\Manage\Views\Shared\_Result.aspx" />
@@ -380,6 +382,7 @@
     <Content Include="Areas\Manage\Views\Shared\_List.master" />
     <Content Include="Plus\kindeditor\ashx\file_manager_json.ashx" />
     <Content Include="Plus\kindeditor\ashx\upload_json.ashx" />
+    <Content Include="Plus\uploadify\ashx\upload_json.ashx" />
     <None Include="Scripts\jquery-1.8.2.intellisense.js" />
     <Content Include="Plus\kindeditor\kindeditor-all-min.js" />
     <Content Include="Plus\kindeditor\kindeditor-all.js" />
@@ -581,6 +584,11 @@
     <Content Include="Plus\kindeditor\themes\qq\editor.gif" />
     <Content Include="Plus\kindeditor\themes\qq\qq.css" />
     <Content Include="Plus\kindeditor\themes\simple\simple.css" />
+    <Content Include="Plus\uploadify\jquery.uploadify.js" />
+    <Content Include="Plus\uploadify\jquery.uploadify.min.js" />
+    <Content Include="Plus\uploadify\uploadify-cancel.png" />
+    <Content Include="Plus\uploadify\uploadify.css" />
+    <Content Include="Plus\uploadify\uploadify.swf" />
     <Content Include="Scripts\jquery-1.8.2.js" />
     <Content Include="Scripts\jquery-1.8.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />

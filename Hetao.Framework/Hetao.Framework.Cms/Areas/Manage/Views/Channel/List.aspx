@@ -16,6 +16,8 @@
                         </th>
                         <th>频道名称
                         </th>
+                        <th>上级频道名称
+                        </th>
                         <th>排序号
                         </th>
 
@@ -32,6 +34,9 @@
                         </td>
                         <td>
                             <%:m.ChannelName%>
+                        </td>
+                        <td>
+                            <%:m.Parent==null?"":m.Parent.ChannelName%>
                         </td>
                         <td>
                             <%:m.Sort%>

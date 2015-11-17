@@ -54,7 +54,8 @@ namespace Hetao.Framework.Cms
                     "~/Themes/Commons/jquery-easyui/themes/bootstrap/easyui.css",
                     "~/Themes/Commons/jquery-easyui/themes/color.css",
                     "~/Themes/Commons/jquery-easyui/themes/icon.css",
-                    "~/Plus/kindeditor/themes/default/default.css"
+                    "~/Plus/kindeditor/themes/default/default.css",
+                    "~/Plus/uploadify/uploadify.css"
                 ));
 
             bundles.Add(new ScriptBundle("~/js/metronic").Include(
@@ -76,7 +77,8 @@ namespace Hetao.Framework.Cms
                    "~/Themes/Metronic/js/jquery.pulsate.js",
                    "~/Themes/Metronic/js/app.js",
                    "~/Themes/Metronic/js/admin.main.js",
-                   "~/Plus/kindeditor/kindeditor.js"
+                   "~/Plus/kindeditor/kindeditor.js",
+                    "~/Plus/uploadify/jquery.uploadify.js"
                 ));
 
 

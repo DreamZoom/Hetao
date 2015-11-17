@@ -37,8 +37,10 @@ namespace Hetao.Framework.CmsService
         /// 父级Id
         /// </summary>
         /// 
-        [Display(Name = "上级频道")]
+        [Display(Name = "上级频道Id")]
         public int Parent_Id { get; set; }
+        [Display(Name = "上级频道")]
+        [ForeignKey("Parent_Id")]
         public virtual Channel Parent { get; set; }
 
         /// <summary>
