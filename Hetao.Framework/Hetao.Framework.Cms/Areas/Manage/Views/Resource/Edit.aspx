@@ -47,6 +47,18 @@
             <span class="help-inline"></span>
         </div>
     </div>
+
+    <div class="control-group">
+        <label class="control-label"><%:Html.DisplayNameFor(model => model.IconImage) %></label>
+        <div class="controls">
+            <div class="editor-field">
+                <%: Html.EditorFor(model => model.IconImage) %>
+                <%: Html.ValidationMessageFor(model => model.IconImage) %>
+            </div>
+            <span class="help-inline"></span>
+        </div>
+    </div>
+
     <div class="control-group">
         <label class="control-label"><%:Html.DisplayNameFor(model => model.Summary) %></label>
         <div class="controls">

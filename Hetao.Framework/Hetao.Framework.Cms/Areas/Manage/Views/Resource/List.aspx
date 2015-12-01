@@ -44,7 +44,7 @@
                             <%:m.Title%>
                         </td>
                         <td>
-                            <%:m.Channel.ChannelName%>
+                            <%:m.Channel==null?"":m.Channel.ChannelName%>
                         </td>
                         <td>
                             <%:m.Summary%>
@@ -58,7 +58,11 @@
                         <td>
                             <a class="btn mini purple thickbox" title='编辑内容' href="<%:Url.Action("Edit", new { id = m.Id })%>">
                                 <i class="icon-edit"></i>
-                                编辑
+                                编辑内容
+                            </a>
+                             <a class="btn mini purple thickbox" title='编辑标签' href="<%:Url.Action("UpdateTags", new { id = m.Id })%>">
+                                <i class="icon-edit"></i>
+                                编辑标签
                             </a>
                         </td>
                     </tr>

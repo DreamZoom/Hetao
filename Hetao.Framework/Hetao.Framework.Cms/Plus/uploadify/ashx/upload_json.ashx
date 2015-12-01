@@ -33,12 +33,12 @@ public class Upload : IHttpHandler
 		Hashtable extTable = new Hashtable();
 		extTable.Add("image", "gif,jpg,jpeg,png,bmp");
 		extTable.Add("flash", "swf,flv");
-		extTable.Add("video", "flv,avi,mpg,asf,rm,rmvb,mp4");
-        extTable.Add("music", "mp3,wav,wma,wmv,mid");
+		extTable.Add("video", "flv,avi,mpg,wmv,asf,rm,rmvb,mp4");
+        extTable.Add("music", "mp3,wav,wma,mid");
 		extTable.Add("file", "doc,docx,xls,xlsx,ppt,htm,html,txt,zip,rar,gz,bz2");
 
 		//最大文件大小
-		int maxSize = 1000000;
+		int maxSize = 100000000;
 		this.context = context;
 
         HttpPostedFile imgFile = context.Request.Files["Filedata"];

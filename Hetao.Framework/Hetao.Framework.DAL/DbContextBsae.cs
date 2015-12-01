@@ -33,7 +33,9 @@ namespace Hetao.Framework.DAL
 
         public T Insert<T>(T entity) where T : ModelBase
         {
-            this.Set<T>().Add(entity);
+            var set = this.Set<T>();
+            set.Attach(entity);
+            this.Entry<T>(entity).State = EntityState.Added;
             this.SaveChanges();
             return entity;
         }
@@ -56,12 +58,20 @@ namespace Hetao.Framework.DAL
             return this.Set<T>().Find(keyValues);
         }
 
-        public List<T> FindAll<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
+        public IQueryable<T> FindAll<T>(Expression<Func<T, bool>> conditions = null) where T : ModelBase
         {
             if (conditions == null)
-                return this.Set<T>().ToList();
+                return this.Set<T>();
             else
-                return this.Set<T>().Where(conditions).ToList();
+                return this.Set<T>().Where(conditions);
+        }
+
+        public IQueryable<T> FindAll<T, S>(Expression<Func<T, S>> orderBy, int top = 10) where T : ModelBase
+        {
+            if (orderBy == null)
+                return this.Set<T>().Take(top);
+            else
+                return this.Set<T>().OrderByDescending(orderBy).Take(top);
         }
 
         public PagedList<T> FindAllByPage<T, S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) where T : ModelBase

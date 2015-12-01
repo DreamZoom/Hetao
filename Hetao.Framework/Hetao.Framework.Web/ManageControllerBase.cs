@@ -152,12 +152,19 @@ namespace Hetao.Framework.Web
         public ActionResult Error(string message)
         {
             string lastUrl = Request.UrlReferrer == null ? "" : Request.UrlReferrer.ToString();
+            ViewBag.MsgType = "error";
+            ViewBag.Message = message;
+            ViewBag.BackUrl = lastUrl;
+
             return View("_Result", new { MsgType = "error", Message = message, BackUrl = lastUrl });
         }
 
         public ActionResult Success(string message)
         {
             string lastUrl = Request.UrlReferrer == null ? "" : Request.UrlReferrer.ToString();
+            ViewBag.MsgType = "success";
+            ViewBag.Message = message;
+            ViewBag.BackUrl = lastUrl;
             return View("_Result", new { MsgType = "success", Message = message, BackUrl = lastUrl });
         }
 

@@ -6,8 +6,65 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
+    <h3>欢迎使用CMS系统</h3>
+
+    <%:Html.Action("Count","resource") %>
+
+    <table class="table table-striped table-hover">
+        <tbody>
+            <tr>
+                <td>当前登录名： </td>
+                <td><%: Hetao.Framework.Web.Auth.AuthorProvider.Admin.getName() %></td>
+            </tr>
+            <tr>
+                <td>服务器IP：   </td>
+                <td><%=Request.ServerVariables["LOCAL_ADDR"]%>                       </td>
+            </tr>
+            <tr>
+                <td>服务器名：   </td>
+                <td><%=Request.ServerVariables["SERVER_NAME"]%>                        </td>
+            </tr>
+            <tr>
+                <td>HTTP端口：   </td>
+                <td><%=Request.ServerVariables["SERVER_PORT"]%>                        </td>
+            </tr>
+            <tr>
+                <td>服务器时间： </td>
+                <td><%=DateTime.Now%>                                                  </td>
+            </tr>
+            <tr>
+                <td>操作系统信息</td>
+                <td><%=Request.ServerVariables["HTTP_USER_AGENT"]%>                    </td>
+            </tr>
+            <tr>
+                <td>允许文件：   </td>
+                <td><%=Request.ServerVariables["HTTP_ACCEPT"]%>                        </td>
+            </tr>
+            <tr>
+                <td>虚拟目录：   </td>
+                <td><%=HttpContext.Current.Request.ApplicationPath%>                   </td>
+            </tr>
+            <tr>
+                <td>物理路径：   </td>
+                <td><%=HttpRuntime.AppDomainAppPath%>                                  </td>
+            </tr>
+            <tr>
+                <td>探针文件路径：</td>
+                <td><%=Context.Server.MapPath(Request.ServerVariables["SCRIPT_NAME"])%></td>
+            </tr>
+            <tr>
+                <td>脚本超时时间：</td>
+                <td><%=Server.ScriptTimeout%>（秒）                                    </td>
+            </tr>
+            <tr>
+                <td>CPU个数:     </td>
+                <td><%=Environment.GetEnvironmentVariable("NUMBER_OF_PROCESSORS")%>    </td>
+            </tr>
+
+        </tbody>
+    </table>
     <!-- BEGIN PAGE HEADER-->
-    <div class="row-fluid">
+    <%-- <div class="row-fluid">
         <div class="span12">
 
             <!-- BEGIN PAGE TITLE & BREADCRUMB-->
@@ -165,7 +222,5 @@
         </div>
         <div class="clearfix"></div>
 
-    </div>
-
-
+    </div>--%>
 </asp:Content>

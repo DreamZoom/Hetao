@@ -49,6 +49,6 @@ namespace Hetao.Framework.CmsService
         /// </summary>
         public int Sort { get; set; }
 
-        public ICollection<Resource> Resources { get; set; }
+        public virtual ICollection<Resource> Resources { get; set; }
     }
 }

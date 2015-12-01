@@ -1,50 +1,167 @@
 ﻿<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
 <!DOCTYPE html>
 <html lang="zh">
-    <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-        <meta charset="utf-8" />
-        <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
-        <link href="<%: Url.Content("~/favicon.ico") %>" rel="shortcut icon" type="image/x-icon" />
-        <meta name="viewport" content="width=device-width" />
-        <%: Styles.Render("~/Content/css") %>
-        <%: Scripts.Render("~/bundles/modernizr") %>
-    </head>
-    <body>
-        <header>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p class="site-title"><%: Html.ActionLink("将你的徽标放置在此处", "Index", "Home") %></p>
-                </div>
-                <div class="float-right">
-                    <section id="login">
-                        <%: Html.Partial("_LoginPartial") %>
-                    </section>
-                    <nav>
-                        <ul id="menu">
-                            <li><%: Html.ActionLink("主页", "Index", "Home") %></li>
-                            <li><%: Html.ActionLink("关于", "About", "Home") %></li>
-                            <li><%: Html.ActionLink("联系方式", "Contact", "Home") %></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </header>
-        <div id="body">
-            <asp:ContentPlaceHolder ID="FeaturedContent" runat="server" />
-            <section class="content-wrapper main-content clear-fix">
-                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
-            </section>
-        </div>
-        <footer>
-            <div class="content-wrapper">
-                <div class="float-left">
-                    <p>&copy; <%: DateTime.Now.Year %> - 我的 ASP.NET MVC 应用程序</p>
-                </div>
-            </div>
-        </footer>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server" />
+    </title>
+    <link href="<%: Url.Content("~/favicon.ico") %>" rel="shortcut icon" type="image/x-icon" />
+    <%--    <link href="../../Themes/Front/bootstrap-3.3.5-dist/css/bootstrap.css" rel="stylesheet" />
+    <link href="../../Themes/Front/bootstrap-3.3.5-dist/css/bootstrap-theme.css" rel="stylesheet" />--%>
+    <link href="../../Themes/Front/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <link href="../../Themes/Front/metro/css/metro-bootstrap.css" rel="stylesheet" />
+    <%--<%: Scripts.Render("~/bundles/modernizr") %>--%>
+    <script src="../../Themes/Front/jquery-2.0.0.min.js"></script>
+    <script src="../../Themes/Front/bootstrap-3.3.5-dist/js/bootstrap.js"></script>
 
-        <%: Scripts.Render("~/bundles/jquery") %>
-        <asp:ContentPlaceHolder ID="ScriptsSection" runat="server" />
-    </body>
+    <style type="text/css">
+        .container {
+            max-width: 960px;
+        }
+
+      
+
+        .carousel-control {
+            position: absolute;
+            top: 40%;
+            left: 15px;
+            width: 40px;
+            height: 40px;
+            /*margin-top: -20px;*/
+            /*font-size: 60px;*/
+            font-weight: 100;
+            /*line-height: 30px;*/
+            color: #ffffff;
+            text-align: center;
+            background: #222222;
+            border: 3px solid #ffffff;
+            -webkit-border-radius: 23px;
+            -moz-border-radius: 23px;
+            border-radius: 23px;
+            opacity: 0.5;
+            filter: alpha(opacity=50);
+        }
+
+            .carousel-control.right {
+                left: auto;
+                right: 15px;
+            }
+
+            .carousel-control:hover, .carousel-control:focus {
+                color: #ffffff;
+                text-decoration: none;
+                opacity: 0.9;
+                filter: alpha(opacity=90);
+            }
+
+        .carousel-indicators {
+           display:none;
+            /*top: 15px;*/
+            right:15px;
+            bottom:15px;
+        }
+
+           
+
+        .carousel-caption {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            padding: 15px;
+            background: #333333;
+            background: rgba(0, 0, 0, 0.75);
+        }
+
+            .carousel-caption h4, .carousel-caption p {
+                color: #ffffff;
+                line-height: 20px;
+            }
+
+            .carousel-caption h4 {
+                margin: 0 0 5px;
+            }
+
+            .carousel-caption p {
+                margin-bottom: 0;
+            }
+      
+
+            .box{
+
+            }
+
+            .box h3{
+                border-bottom: solid 2px #237ae5;
+                padding-bottom:5px;
+            }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"><i class="icon icon-dashboard"></i></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><%: Html.ActionLink("主页", "Home", "Cms") %></li>
+                    <%:Html.Action("ChannelList","CmsModule", new { channelId = -1}) %>
+                    <li><%: Html.ActionLink("关于", "About", "Cms") %></li>
+                    <li><%: Html.ActionLink("联系方式", "Contact", "Cms") %></li>
+
+                </ul>
+                <%--<form class="navbar-form navbar-right" role="search">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="Search">
+                    </div>
+                    <button type="submit" class="btn btn-default"><i class="icon-search"></i></button>
+                </form>--%>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            </div>
+        </div>
+
+
+    </div>
+
+    <footer class="container">
+
+        <div class="row">
+            <div class="col-md-12">
+                <center>
+                   copyright &copy; <%: DateTime.Now.Year %> 
+                </center>
+
+            </div>
+        </div>
+
+
+    </footer>
+
+
+</body>
 </html>

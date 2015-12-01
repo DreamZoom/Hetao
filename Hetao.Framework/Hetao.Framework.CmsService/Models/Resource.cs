@@ -33,8 +33,14 @@ namespace Hetao.Framework.CmsService
         [Required]
         public string Title { get; set; }
 
+        [Display(Name = "封面")]
+        [UIHint("SingleImage")]
+        public string IconImage { get; set; }
+
         [Display(Name = "介绍")]
         public string Summary { get; set; }
+
+
 
 
         [Display(Name = "内容")]

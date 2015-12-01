@@ -100,7 +100,23 @@ namespace Hetao.Framework.Web.Config
         {
             var controller = helper.ViewContext.RouteData.Values["controller"].ToString();
             var action = helper.ViewContext.RouteData.Values["action"].ToString();
-            return this.ControllerName == controller && this.ActionName == action;
+
+            bool paramCompare = true;
+            if (!string.IsNullOrWhiteSpace(this.Param))
+            {
+                var plist = this.Param.Split('&');
+                foreach(var kv in plist){
+                    var k = kv.Split('=')[0];
+                    var v = kv.Split('=')[1];
+                    if (helper.ViewContext.HttpContext.Request[k] != v)
+                    {
+                        paramCompare = false;
+                        break;
+                    }
+                }
+            }
+
+            return this.ControllerName == controller && this.ActionName == action && paramCompare;
         }
 
         public bool IsGroupCurrent(HtmlHelper helper)
@@ -111,5 +127,5 @@ namespace Hetao.Framework.Web.Config
 
     }
 
-    
+
 }

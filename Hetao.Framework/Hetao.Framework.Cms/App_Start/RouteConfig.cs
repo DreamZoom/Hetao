@@ -16,7 +16,11 @@ namespace Hetao.Framework.Cms
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+                defaults: new { controller = "Cms", action = "home", id = UrlParameter.Optional },
+                namespaces: new string[] { 
+                    "Hetao.Framework.Cms.Controllters", 
+                    "Hetao.Framework.CmsService.Controllters"
+                }
             );
         }
     }

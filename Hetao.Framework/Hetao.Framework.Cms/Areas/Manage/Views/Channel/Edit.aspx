@@ -22,7 +22,7 @@
         <label class="control-label"><%:Html.DisplayNameFor(model => model.Parent) %></label>
         <div class="controls">
             <div class="editor-field">
-                <%: Html.DropDownList("Parent_Id","请选择频道...") %>
+                <%: Html.DropDownList("Parent_Id") %>
                 <%: Html.ValidationMessageFor(model => model.Parent_Id) %>
             </div>
             <span class="help-inline"></span>

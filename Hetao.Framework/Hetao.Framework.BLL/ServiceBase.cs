@@ -22,57 +22,71 @@ namespace Hetao.Framework.BLL
             this.DbContext = context;
         }
 
-        public T Update(T entity)
+        public virtual T Update(T entity)
         {
             return  DbContext.Update(entity);
         }
 
-        public T Insert(T entity) 
+        public virtual T Insert(T entity) 
         {
             return DbContext.Insert(entity);
         }
 
-        public void Delete(T entity) 
+        public virtual void Delete(T entity) 
         {
              DbContext.Delete(entity);
         }
 
-        public void DeleteList(HttpRequestBase request)
+        public virtual void DeleteList(HttpRequestBase request)
         {
-            DbContext.DeleteList<T>(request);
+            //DbContext.DeleteList<T>(request);
+            var list = DbContext.Set<T>().WhereIDs(request);
+            DbContext.Set<T>().RemoveRange(list);
+            DbContext.SaveChanges();
         }
 
-        public T Find(params object[] keyValues) 
+        public virtual T Find(params object[] keyValues) 
         {
             return DbContext.Find<T>(keyValues);
         }
 
-        public List<T> FindAll(Expression<Func<T, bool>> conditions = null)
+        public virtual IQueryable<T> FindAll(Expression<Func<T, bool>> conditions = null)
         {
             return DbContext.FindAll<T>(conditions);
         }
 
-        public PagedList<T> FindAllByPage<S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) 
+        public virtual IQueryable<T> FindAll<S>(Expression<Func<T, S>> orderBy, int top = 10)
+        {
+            return DbContext.FindAll<T,S>(orderBy, top);
+        }
+
+        public virtual PagedList<T> FindAllByPage<S>(Expression<Func<T, bool>> conditions, Expression<Func<T, S>> orderBy, int pageSize, int pageIndex) 
         {
             return DbContext.FindAllByPage<T, S>(conditions, orderBy, pageSize, pageIndex);
         }
 
 
-        public T Find(HttpRequestBase request) 
+        public virtual T Find(HttpRequestBase request) 
         {
             return DbContext.Find<T>(request);
         }
 
-        public List<T> FindAll(HttpRequestBase request) 
+        public virtual List<T> FindAll(HttpRequestBase request) 
         {
             return DbContext.FindAll<T>(request);
         }
 
-        public List<T> FindAll(HttpRequestBase request, int top) 
+        public virtual List<T> FindAllWithIDs(HttpRequestBase request)
+        {
+            var list = DbContext.Set<T>().WhereIDs(request);
+            return list.ToList();
+        }
+
+        public virtual List<T> FindAll(HttpRequestBase request, int top) 
         {
             return DbContext.FindAll<T>(request,top);
         }
-        public PagedList<T> FindAllByPage(HttpRequestBase request, int pageSize, int pageIndex)
+        public virtual PagedList<T> FindAllByPage(HttpRequestBase request, int pageSize, int pageIndex)
         {
             return DbContext.FindAllByPage<T>(request,pageSize,pageIndex);
         }
